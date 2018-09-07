@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence</title>
+  <meta name="description" content="Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence">
+  <meta name="generator" content="bookdown 0.7.13 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence" />
+  
+  
+  
+
+<meta name="author" content="Pranav Pandya">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="6-time-series.html">
+<link rel="next" href="8-conclusion.html">
+<style type="text/css">
+p.abstract{
+  text-align: center;
+  font-weight: bold;
+}
+div.abstract{
+  margin: auto;
+  width: 90%;
+}
+</style>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.2.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.7.1.9000/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.38.3/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.38.3/plotly-latest.min.js"></script>
+<script src="libs/proj4js-2.3.15/proj4.js"></script>
+<link href="libs/highcharts-6.0.3/css/motion.css" rel="stylesheet" />
+<script src="libs/highcharts-6.0.3/highcharts.js"></script>
+<script src="libs/highcharts-6.0.3/highcharts-3d.js"></script>
+<script src="libs/highcharts-6.0.3/highcharts-more.js"></script>
+<script src="libs/highcharts-6.0.3/modules/stock.js"></script>
+<script src="libs/highcharts-6.0.3/modules/heatmap.js"></script>
+<script src="libs/highcharts-6.0.3/modules/treemap.js"></script>
+<script src="libs/highcharts-6.0.3/modules/annotations.js"></script>
+<script src="libs/highcharts-6.0.3/modules/boost.js"></script>
+<script src="libs/highcharts-6.0.3/modules/data.js"></script>
+<script src="libs/highcharts-6.0.3/modules/drag-panes.js"></script>
+<script src="libs/highcharts-6.0.3/modules/drilldown.js"></script>
+<script src="libs/highcharts-6.0.3/modules/funnel.js"></script>
+<script src="libs/highcharts-6.0.3/modules/item-series.js"></script>
+<script src="libs/highcharts-6.0.3/modules/offline-exporting.js"></script>
+<script src="libs/highcharts-6.0.3/modules/overlapping-datalabels.js"></script>
+<script src="libs/highcharts-6.0.3/modules/parallel-coordinates.js"></script>
+<script src="libs/highcharts-6.0.3/modules/sankey.js"></script>
+<script src="libs/highcharts-6.0.3/modules/solid-gauge.js"></script>
+<script src="libs/highcharts-6.0.3/modules/streamgraph.js"></script>
+<script src="libs/highcharts-6.0.3/modules/sunburst.js"></script>
+<script src="libs/highcharts-6.0.3/modules/vector.js"></script>
+<script src="libs/highcharts-6.0.3/modules/wordcloud.js"></script>
+<script src="libs/highcharts-6.0.3/modules/xrange.js"></script>
+<script src="libs/highcharts-6.0.3/modules/exporting.js"></script>
+<script src="libs/highcharts-6.0.3/modules/export-data.js"></script>
+<script src="libs/highcharts-6.0.3/maps/modules/map.js"></script>
+<script src="libs/highcharts-6.0.3/plugins/grouped-categories.js"></script>
+<script src="libs/highcharts-6.0.3/plugins/motion.js"></script>
+<script src="libs/highcharts-6.0.3/plugins/multicolor_series.js"></script>
+<script src="libs/highcharts-6.0.3/custom/reset.js"></script>
+<script src="libs/highcharts-6.0.3/custom/symbols-extra.js"></script>
+<script src="libs/highcharts-6.0.3/custom/text-symbols.js"></script>
+<script src="libs/highchart-binding-0.6.0/highchart.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
+<script src="libs/vis-4.20.1/vis.min.js"></script>
+<script src="libs/visNetwork-binding-2.0.4/visNetwork.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#definition-of-terrorism"><i class="fa fa-check"></i>Definition of terrorism</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#problem-statement"><i class="fa fa-check"></i>Problem statement</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#research-design-and-data"><i class="fa fa-check"></i>Research design and data</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#policy-and-practice-implications"><i class="fa fa-check"></i>Policy and practice implications</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#deliverables"><i class="fa fa-check"></i>Deliverables</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html"><i class="fa fa-check"></i><b>1</b> Essentials of Counterterrorism</a><ul>
+<li class="chapter" data-level="1.1" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#intelligence-disciplines"><i class="fa fa-check"></i><b>1.1</b> Intelligence disciplines</a></li>
+<li class="chapter" data-level="1.2" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#osint-and-data-relevance"><i class="fa fa-check"></i><b>1.2</b> OSINT and data relevance</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#open-source-databases-on-terrorism"><i class="fa fa-check"></i><b>1.2.1</b> Open-source databases on terrorism</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#whats-important-in-terrorism-research"><i class="fa fa-check"></i><b>1.3</b> What’s important in terrorism research?</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#primary-vs-secondary-sources"><i class="fa fa-check"></i><b>1.3.1</b> Primary vs secondary sources</a></li>
+<li class="chapter" data-level="1.3.2" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#use-of-statistical-analysis"><i class="fa fa-check"></i><b>1.3.2</b> Use of statistical analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-literature-review.html"><a href="2-literature-review.html"><i class="fa fa-check"></i><b>2</b> Literature Review</a><ul>
+<li class="chapter" data-level="2.1" data-path="2-literature-review.html"><a href="2-literature-review.html#overview-of-prior-research"><i class="fa fa-check"></i><b>2.1</b> Overview of prior research</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="2-literature-review.html"><a href="2-literature-review.html#harsh-realities"><i class="fa fa-check"></i><b>2.1.1</b> Harsh realities</a></li>
+<li class="chapter" data-level="2.1.2" data-path="2-literature-review.html"><a href="2-literature-review.html#review-of-relevant-literature"><i class="fa fa-check"></i><b>2.1.2</b> Review of relevant literature</a></li>
+<li class="chapter" data-level="2.1.3" data-path="2-literature-review.html"><a href="2-literature-review.html#gtd-and-machine-learning-in-previous-research"><i class="fa fa-check"></i><b>2.1.3</b> GTD and machine learning in previous research</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="2-literature-review.html"><a href="2-literature-review.html#literature-gap-and-relevance"><i class="fa fa-check"></i><b>2.2</b> Literature gap and relevance</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html"><i class="fa fa-check"></i><b>3</b> Impact Analysis</a><ul>
+<li class="chapter" data-level="3.1" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html#data-preparation"><i class="fa fa-check"></i><b>3.1</b> Data preparation</a></li>
+<li class="chapter" data-level="3.2" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html#global-overview"><i class="fa fa-check"></i><b>3.2</b> Global overview</a></li>
+<li class="chapter" data-level="3.3" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html#the-top-10-most-active-and-violent-groups"><i class="fa fa-check"></i><b>3.3</b> The top 10 most active and violent groups</a></li>
+<li class="chapter" data-level="3.4" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html#the-major-and-minor-epicenters"><i class="fa fa-check"></i><b>3.4</b> The major and minor epicenters</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Statistical Hypothesis Testing</a><ul>
+<li class="chapter" data-level="4.1" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#data-preparation-1"><i class="fa fa-check"></i><b>4.1</b> Data preparation</a></li>
+<li class="chapter" data-level="4.2" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#correlation-test"><i class="fa fa-check"></i><b>4.2</b> Correlation test</a></li>
+<li class="chapter" data-level="4.3" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#hypothesis-test-fatalities-vs-groups"><i class="fa fa-check"></i><b>4.3</b> Hypothesis test: fatalities vs groups</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#anova-test"><i class="fa fa-check"></i><b>4.3.1</b> ANOVA test</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#posthoc-test"><i class="fa fa-check"></i><b>4.3.2</b> PostHoc test</a></li>
+<li class="chapter" data-level="4.3.3" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#interpretation"><i class="fa fa-check"></i><b>4.3.3</b> Interpretation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html"><i class="fa fa-check"></i><b>5</b> Pattern discovery</a><ul>
+<li class="chapter" data-level="5.1" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#data-preparation-2"><i class="fa fa-check"></i><b>5.1</b> Data preparation</a></li>
+<li class="chapter" data-level="5.2" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#explanation-of-key-terms"><i class="fa fa-check"></i><b>5.2</b> Explanation of key terms</a></li>
+<li class="chapter" data-level="5.3" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#islamic-state-isil"><i class="fa fa-check"></i><b>5.3</b> Islamic State (ISIL)</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#apriori-model-summary"><i class="fa fa-check"></i><b>5.3.1</b> Apriori model summary</a></li>
+<li class="chapter" data-level="5.3.2" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#top-5-patterns-isil"><i class="fa fa-check"></i><b>5.3.2</b> Top 5 patterns (ISIL)</a></li>
+<li class="chapter" data-level="5.3.3" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#network-graph-isil"><i class="fa fa-check"></i><b>5.3.3</b> Network graph (ISIL)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#taliban"><i class="fa fa-check"></i><b>5.4</b> Taliban</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#apriori-model-summary-1"><i class="fa fa-check"></i><b>5.4.1</b> Apriori model summary</a></li>
+<li class="chapter" data-level="5.4.2" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#top-5-patterns-taliban"><i class="fa fa-check"></i><b>5.4.2</b> Top 5 patterns (Taliban)</a></li>
+<li class="chapter" data-level="5.4.3" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#network-graph-taliban"><i class="fa fa-check"></i><b>5.4.3</b> Network graph (Taliban)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#boko-haram"><i class="fa fa-check"></i><b>5.5</b> Boko Haram</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#apriori-model-summary-2"><i class="fa fa-check"></i><b>5.5.1</b> Apriori model summary</a></li>
+<li class="chapter" data-level="5.5.2" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#top-5-patterns-boko-haram"><i class="fa fa-check"></i><b>5.5.2</b> Top 5 patterns (Boko Haram)</a></li>
+<li class="chapter" data-level="5.5.3" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#network-graph-boko-haram"><i class="fa fa-check"></i><b>5.5.3</b> Network graph (Boko Haram)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-time-series.html"><a href="6-time-series.html"><i class="fa fa-check"></i><b>6</b> Time-series Forecasting</a><ul>
+<li class="chapter" data-level="6.1" data-path="6-time-series.html"><a href="6-time-series.html#afghanistan-predict-future-attacks"><i class="fa fa-check"></i><b>6.1</b> Afghanistan (Predict future attacks)</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="6-time-series.html"><a href="6-time-series.html#data-preparation-3"><i class="fa fa-check"></i><b>6.1.1</b> Data preparation</a></li>
+<li class="chapter" data-level="6.1.2" data-path="6-time-series.html"><a href="6-time-series.html#seasonality-analysis"><i class="fa fa-check"></i><b>6.1.2</b> Seasonality analysis</a></li>
+<li class="chapter" data-level="6.1.3" data-path="6-time-series.html"><a href="6-time-series.html#correlation-test-1"><i class="fa fa-check"></i><b>6.1.3</b> Correlation test</a></li>
+<li class="chapter" data-level="6.1.4" data-path="6-time-series.html"><a href="6-time-series.html#modelling"><i class="fa fa-check"></i><b>6.1.4</b> Modelling</a></li>
+<li class="chapter" data-level="6.1.5" data-path="6-time-series.html"><a href="6-time-series.html#evaluating-models-performance"><i class="fa fa-check"></i><b>6.1.5</b> Evaluating models’ Performance</a></li>
+<li class="chapter" data-level="6.1.6" data-path="6-time-series.html"><a href="6-time-series.html#ensemble"><i class="fa fa-check"></i><b>6.1.6</b> Ensemble</a></li>
+<li class="chapter" data-level="6.1.7" data-path="6-time-series.html"><a href="6-time-series.html#forecast-future-number-of-attacks"><i class="fa fa-check"></i><b>6.1.7</b> Forecast future number of attacks</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="6-time-series.html"><a href="6-time-series.html#iraq-predict-future-fatalities"><i class="fa fa-check"></i><b>6.2</b> Iraq (Predict future fatalities)</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="6-time-series.html"><a href="6-time-series.html#data-preparation-4"><i class="fa fa-check"></i><b>6.2.1</b> Data preparation</a></li>
+<li class="chapter" data-level="6.2.2" data-path="6-time-series.html"><a href="6-time-series.html#seasonality-analysis-1"><i class="fa fa-check"></i><b>6.2.2</b> Seasonality analysis</a></li>
+<li class="chapter" data-level="6.2.3" data-path="6-time-series.html"><a href="6-time-series.html#correlation-test-2"><i class="fa fa-check"></i><b>6.2.3</b> Correlation test</a></li>
+<li class="chapter" data-level="6.2.4" data-path="6-time-series.html"><a href="6-time-series.html#modelling-1"><i class="fa fa-check"></i><b>6.2.4</b> Modelling</a></li>
+<li class="chapter" data-level="6.2.5" data-path="6-time-series.html"><a href="6-time-series.html#ensemble-1"><i class="fa fa-check"></i><b>6.2.5</b> Ensemble</a></li>
+<li class="chapter" data-level="6.2.6" data-path="6-time-series.html"><a href="6-time-series.html#forecast-future-fatalities"><i class="fa fa-check"></i><b>6.2.6</b> Forecast future fatalities</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="6-time-series.html"><a href="6-time-series.html#sahel-region-predict-future-attacks"><i class="fa fa-check"></i><b>6.3</b> SAHEL Region (Predict future attacks)</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="6-time-series.html"><a href="6-time-series.html#data-preparation-5"><i class="fa fa-check"></i><b>6.3.1</b> Data preparation</a></li>
+<li class="chapter" data-level="6.3.2" data-path="6-time-series.html"><a href="6-time-series.html#seasonality-analysis-2"><i class="fa fa-check"></i><b>6.3.2</b> Seasonality analysis</a></li>
+<li class="chapter" data-level="6.3.3" data-path="6-time-series.html"><a href="6-time-series.html#correlation-test-3"><i class="fa fa-check"></i><b>6.3.3</b> Correlation test</a></li>
+<li class="chapter" data-level="6.3.4" data-path="6-time-series.html"><a href="6-time-series.html#modelling-2"><i class="fa fa-check"></i><b>6.3.4</b> Modelling</a></li>
+<li class="chapter" data-level="6.3.5" data-path="6-time-series.html"><a href="6-time-series.html#ensemble-2"><i class="fa fa-check"></i><b>6.3.5</b> Ensemble</a></li>
+<li class="chapter" data-level="6.3.6" data-path="6-time-series.html"><a href="6-time-series.html#forecast-future-attacks"><i class="fa fa-check"></i><b>6.3.6</b> Forecast future attacks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-classification.html"><a href="7-classification.html"><i class="fa fa-check"></i><b>7</b> Predicting Class Probabilities</a><ul>
+<li class="chapter" data-level="7.1" data-path="7-classification.html"><a href="7-classification.html#evolution-of-gradient-boosting-machines"><i class="fa fa-check"></i><b>7.1</b> Evolution of Gradient Boosting Machines</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="7-classification.html"><a href="7-classification.html#lightgbm"><i class="fa fa-check"></i><b>7.1.1</b> LightGBM</a></li>
+<li class="chapter" data-level="7.1.2" data-path="7-classification.html"><a href="7-classification.html#the-mechanism-behind-the-improvised-accuracy"><i class="fa fa-check"></i><b>7.1.2</b> The mechanism behind the improvised accuracy</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="7-classification.html"><a href="7-classification.html#data-preparation-6"><i class="fa fa-check"></i><b>7.2</b> Data preparation</a></li>
+<li class="chapter" data-level="7.3" data-path="7-classification.html"><a href="7-classification.html#overview-of-the-target-variable"><i class="fa fa-check"></i><b>7.3</b> Overview of the target variable</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="7-classification.html"><a href="7-classification.html#dealing-with-class-imbalance"><i class="fa fa-check"></i><b>7.3.1</b> Dealing with class imbalance</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="7-classification.html"><a href="7-classification.html#feature-engineering"><i class="fa fa-check"></i><b>7.4</b> Feature engineering</a></li>
+<li class="chapter" data-level="7.5" data-path="7-classification.html"><a href="7-classification.html#validation-strategy"><i class="fa fa-check"></i><b>7.5</b> Validation strategy</a></li>
+<li class="chapter" data-level="7.6" data-path="7-classification.html"><a href="7-classification.html#hyperparameter-optimization"><i class="fa fa-check"></i><b>7.6</b> Hyperparameter optimization</a></li>
+<li class="chapter" data-level="7.7" data-path="7-classification.html"><a href="7-classification.html#modelling-3"><i class="fa fa-check"></i><b>7.7</b> Modelling</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="7-classification.html"><a href="7-classification.html#model-evaluation"><i class="fa fa-check"></i><b>7.7.1</b> Model evaluation</a></li>
+<li class="chapter" data-level="7.7.2" data-path="7-classification.html"><a href="7-classification.html#confusion-matrix"><i class="fa fa-check"></i><b>7.7.2</b> Confusion Matrix</a></li>
+<li class="chapter" data-level="7.7.3" data-path="7-classification.html"><a href="7-classification.html#feature-importance"><i class="fa fa-check"></i><b>7.7.3</b> Feature importance</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="7-classification.html"><a href="7-classification.html#model-interpretation"><i class="fa fa-check"></i><b>7.8</b> Model interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-conclusion.html"><a href="8-conclusion.html"><i class="fa fa-check"></i><b>8</b> Discussion and Conclusion</a><ul>
+<li class="chapter" data-level="8.1" data-path="8-conclusion.html"><a href="8-conclusion.html#research-limitations-and-future-work"><i class="fa fa-check"></i><b>8.1</b> Research limitations and future work</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="A-appendix-i.html"><a href="A-appendix-i.html"><i class="fa fa-check"></i><b>A</b> Appendix I</a><ul>
+<li class="chapter" data-level="A.1" data-path="A-appendix-i.html"><a href="A-appendix-i.html#initial-data-preparation-script"><i class="fa fa-check"></i><b>A.1</b> Initial data preparation script</a></li>
+<li class="chapter" data-level="A.2" data-path="A-appendix-i.html"><a href="A-appendix-i.html#list-of-variables-and-short-description"><i class="fa fa-check"></i><b>A.2</b> List of variables and short description</a></li>
+<li class="chapter" data-level="A.3" data-path="A-appendix-i.html"><a href="A-appendix-i.html#r-session-info"><i class="fa fa-check"></i><b>A.3</b> R Session Info:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="classification" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Predicting Class Probabilities</h1>
+<p>In our dataset, we have several categorical variables such as suicide attack, attack success, extended attack, part of multiple attacks etc with qualitative value i.e. Yes/ No (1 or 0). In the previous chapter, we have predicted a number of attacks and fatalities for Afghanistan, Iraq and SAHEL region. In this chapter, we choose data from all the countries that are impacted by top 10 most active and violent groups and make use of a cutting-edge LightGBM algorithm to predict the category of target variable which will be helpful to identify and understand the causal variables behind such attacks. This is a supervised machine learning approach, which means our dataset has labeled observations and the objective is to find a function that can be used to assign a class to unseen observations.</p>
+<div id="evolution-of-gradient-boosting-machines" class="section level2">
+<h2><span class="header-section-number">7.1</span> Evolution of Gradient Boosting Machines</h2>
+<p>In supervised learning, boosting is a commonly used machine learning algorithm due to its accuracy and efficiency. It is an ensemble model of decision trees where trees are grown sequentially i.e. each decision tree grown using the information from previously grown trees <span class="citation">(James, Witten, Hastie, &amp; Tibshirani, 2013)</span>. In other words, boosting overcomes the deficiencies in the decision trees by sequentially fitting the negative gradients to each new decision tree in the ensemble. Boosting method was further enhanced with optimization and as a result, Gradient Boosting Machine (GBM) came out a new approach to efficiently implement boosting method as proposed by the researcher <span class="citation">(Friedman, 2001)</span> in his paper “Greedy Function Approximation: A Gradient Boosting Machine”. GBM is also known as GBDT (Gradient Boosting Decision Tree). This approach has shown significant improvement in accuracy compared to traditional models. Although, this technique is quite effective but for every variable, boosting needs to scan all the data instances in order to estimate the information gain for all the possible splits. Eventually, this leads to increased computational complexities depending on a number of features and number of data instances <span class="citation">(Ke et al., 2017)</span>.</p>
+<p>To further explain this, finding optimal splits during the learning process is the most time-consuming part of traditional GBDT. The GBM package in R and XGBoost implements GBDT using pre-sorted algorithm to find optimal splits <span class="citation">(T. Chen &amp; Guestrin, 2016; Ridgeway, 2007)</span>. This approach requires scanning all the instances and then sorting them by feature gains. Another approach uses a histogram-based algorithm to bucket continuous variables into discrete bins. This approach focuses on constructing feature histograms through discrete bins during training process instead of finding splits based on sorted feature values <span class="citation">(Ke et al., 2017)</span>. XGBoost supports both histogram-based and pre-sorted algorithm. Comparatively, the histogram-based approach is the most efficient in terms of training speed and RAM usage. From the year 2015, XGBoost has been widely recognized in many machine learning competitions (such as on Kaggle) as one of the best gradient boosting algorithm <span class="citation">(T. Chen &amp; Guestrin, 2016; Nielsen, 2016)</span>.</p>
+<div id="lightgbm" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> LightGBM</h3>
+<p>LightGBM is a fairly recent implementation of parallel GBDT process which uses histogram-based approach and offers significant improvement in training time and memory usage. The winning solutions from recent machine learning challenges on Kaggle and benchmarking of various GBM from the researcher <span class="citation">(Pafka, 2018)</span> indicate that LightGBM outperforms XGBoost and other traditional algorithms in terms of accuracy as well. LightGBM was developed by Microsoft researchers in October 2016 and it is an open-source library available in R and Python both.</p>
+</div>
+<div id="the-mechanism-behind-the-improvised-accuracy" class="section level3">
+<h3><span class="header-section-number">7.1.2</span> The mechanism behind the improvised accuracy</h3>
+<p>The key difference between traditional algorithms and LightGBM algorithm is how trees are grown. Most decision tree learning algorithms controls the model complexity by depth and grow trees by level (depth-wise) as shown in the image below (image source<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a>):</p>
+<div class="figure" style="text-align: center"><span id="fig:depthwise"></span>
+<img src="figure/depthwise.png" alt="Level-wise tree growth in most GBDT algorithms" width="65%" />
+<p class="caption">
+Figure 7.1: Level-wise tree growth in most GBDT algorithms
+</p>
+</div>
+<p>In contrast, the LightGBM algorithm uses a best-first approach and grows tree leaf-wise. As a result, the tree will choose the leaf with max delta loss to grow. According to <span class="citation">(Microsoft Corporation, 2018)</span>, holding the leaf fixed, leaf-wise algorithms are able to achieve better accuracy i.e. lower loss compared to level-wise algorithms.</p>
+<div class="figure" style="text-align: center"><span id="fig:leafwise"></span>
+<img src="figure/leafwise.png" alt="Leaf-wise tree growth in LightGBM algorithm" width="100%" />
+<p class="caption">
+Figure 7.2: Leaf-wise tree growth in LightGBM algorithm
+</p>
+</div>
+<p>(image source<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>)</p>
+<p>Researcher <span class="citation">(Shi, 2007)</span> further explains the phenomena behind tree growth in best-first and depth-first approach and suggests that most decision tree learners expand nodes in depth-first order whereas best-first tree learners expand the best node whose split achieves maximum reduction of impurity among all the nodes available for splitting. Although the resulting tree will be the same as a depth-wise tree, the difference is in the order in which it grown.</p>
+<p>One of the key advantages of using LightGBM algorithm is that it offers good accuracy with label encoded categorical features instead of one hot encoded features. This eventually leads to faster training time. According to LightGBM documentation <span class="citation">(Microsoft Corporation, 2018)</span>, the tree built on one-hot encoded features tends to be unbalanced and needs higher depth in order to achieve good accuracy in the case of categorical features with high-cardinality. LightGBM implements Exclusive Feature Bundling (EFB) technique, which is based on research by <span class="citation">(D. Fisher, 1958)</span> to find the optimal split over categories and often performs better than one-hot encoding.</p>
+<p>One disadvantage of the leaf-wise approach is that it may cause over fitting when data is small. To overcome this issue, LightGBM includes the <code>max_depth</code> parameter to control model complexity, however, trees still grow leaf-wise even when <code>max_depth</code> is specified <span class="citation">(Microsoft Corporation, 2018)</span>.</p>
+</div>
+</div>
+<div id="data-preparation-6" class="section level2">
+<h2><span class="header-section-number">7.2</span> Data preparation</h2>
+<p>To understand the characteristics of the top 10 most active and violent terrorist groups, we filter the data and include all the countries that are impacted by this groups as shown in the code chunk below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df_class &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(group_name <span class="op">%in%</span><span class="st"> </span>top10_groups) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(suicide_attack, year, month, day, region, country, 
+         provstate, city, attack_type, target_type, weapon_type, 
+         target_nalty, group_name, crit1_pol_eco_rel_soc, crit2_publicize, 
+         crit3_os_intl_hmn_law, part_of_multiple_attacks, 
+         individual_attack, attack_success, extended, 
+         intl_logistical_attack, intl_ideological_attack, 
+         nkill, nwound, arms_export, arms_import, population, 
+         gdp_per_capita, refugee_asylum, refugee_origin, 
+         net_migration, n_peace_keepers, conflict_index) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">replace_na</span>(<span class="kw">list</span>(<span class="dt">nkill =</span> <span class="dv">0</span>, <span class="dt">nwound =</span> <span class="dv">0</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">na.omit</span>()</code></pre></div>
+</div>
+<div id="overview-of-the-target-variable" class="section level2">
+<h2><span class="header-section-number">7.3</span> Overview of the target variable</h2>
+<p>For this analysis, I have selected <code>suicide_attack</code> as a target variable. According to GTD codebook, this variable is coded “Yes” in those cases where there is evidence that the perpetrator did not intend to escape from the attack alive.</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-123">Table 7.1: </span>Frequency table: suicide attack variable
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+level
+</th>
+<th style="text-align:right;">
+freq
+</th>
+<th style="text-align:right;">
+perc
+</th>
+<th style="text-align:right;">
+cumfreq
+</th>
+<th style="text-align:right;">
+cumperc
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:right;">
+19319
+</td>
+<td style="text-align:right;">
+0.887
+</td>
+<td style="text-align:right;">
+19319
+</td>
+<td style="text-align:right;">
+0.887
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:right;">
+2461
+</td>
+<td style="text-align:right;">
+0.113
+</td>
+<td style="text-align:right;">
+21780
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+</tbody>
+</table>
+<p>From the frequency table, we can see that 11.3% of incidents were observed as suicide attacks out of total 21,780 observations. Our objective is to train the classifier on training data (up to 2015) and correctly classify the instances of “Yes” in suicide attack variable in test data (the year 2016).</p>
+<div id="dealing-with-class-imbalance" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Dealing with class imbalance</h3>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-124"></span>
+<img src="thesis_files/figure-html/unnamed-chunk-124-1.png" alt="Overview of target variable: Suicide Attack" width="384" />
+<p class="caption">
+Figure 7.3: Overview of target variable: Suicide Attack
+</p>
+</div>
+<p>From the frequency table and the plot above, we can see that the target variable has a severe class imbalance where positive cases are present in only 11.3% observations. For the classification modeling, the class imbalance is a major issue and there are several techniques to deal with it such as down sampling, up sampling, SMOTE (Synthetic Minority Over-sampling Technique).</p>
+<p>We use <code>scale_pos_weight</code> argument in the model building process which controls the weights of the positive observations. According to LightGBM documentation <span class="citation">(Microsoft Corporation, 2018)</span>, default value for <code>scale_pos_weight</code> is 1.0 and it represents weight of positive class in binary classification task. We calculate this value as a number of negative samples/number of positive samples.</p>
+</div>
+</div>
+<div id="feature-engineering" class="section level2">
+<h2><span class="header-section-number">7.4</span> Feature engineering</h2>
+<p>Feature engineering is a process of creating representations of data that increase the effectiveness of a model <span class="citation">(M. K. and K. Johnson, 2018)</span>. This is one of the most important aspects in machine learning that requires careful transformations and widening the feature space in order to improve the performance of the model. During the data cleaning process, we have already taken care of missing values and NAs. With regard to LightGBM model, the primary requirement is to have all the variables in numeric. As discussed earlier, LightGBM offers good accuracy with label encoded categorical features compared to the one-hot encoding method used in most algorithms. In this regard, we label encode all the categorical variables and specify them as a vector in model parameters. We also have numeric variables with extreme values such as arms_import, arms_export, nkill, nwound etc. For the modeling purpose, we use log transformation for such features. Last but not the least, we add frequency count features to widen the feature space. Frequency count features is a known technique in machine learning competitions to improve the accuracy of the model. An example of the feature with frequency is a number of attacks by the group, year and region. Use of frequency count features adds more context to data and will be helpful to improve the performance of the model.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#-------------------------------------------------------------</span>
+<span class="co"># Step 1: log transformation</span>
+<span class="co">#-------------------------------------------------------------</span>
+data &lt;-<span class="st"> </span>df_class <span class="op">%&gt;%</span><span class="st">  </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">nkill =</span> <span class="kw">log1p</span>(nkill <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>), 
+         <span class="dt">nwound=</span> <span class="kw">log1p</span>(nwound <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>),
+         <span class="dt">arms_export =</span> <span class="kw">log1p</span>(arms_export <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>),
+         <span class="dt">arms_import =</span> <span class="kw">log1p</span>(arms_import <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>),
+         <span class="dt">population =</span> <span class="kw">log1p</span>(population <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>))
+
+<span class="co">#--------------------------------------------------------------</span>
+<span class="co"># Step 2: Add frequency count features</span>
+<span class="co">#--------------------------------------------------------------</span>
+data &lt;-<span class="st"> </span><span class="kw">as.data.table</span>(data)
+data[, n_group_year<span class="op">:</span><span class="er">=</span>.N,        by=<span class="kw">list</span>(group_name, year)]
+data[, n_region_year<span class="op">:</span><span class="er">=</span>.N,       by=<span class="kw">list</span>(region, year)]
+data[, n_city_year<span class="op">:</span><span class="er">=</span>.N,         by=<span class="kw">list</span>(city, year)]
+data[, n_attack_year<span class="op">:</span><span class="er">=</span>.N,       by=<span class="kw">list</span>(attack_type, year)]
+data[, n_target_year<span class="op">:</span><span class="er">=</span>.N,       by=<span class="kw">list</span>(target_type, year)]
+data[, n_weapon_year<span class="op">:</span><span class="er">=</span>.N,       by=<span class="kw">list</span>(weapon_type, year)]
+data[, n_group_region_year<span class="op">:</span><span class="er">=</span>.N, by=<span class="kw">list</span>(group_name, region, year)]
+data[, n_group<span class="op">:</span><span class="er">=</span>.N,             by=<span class="kw">list</span>(group_name)]
+data[, n_provstate<span class="op">:</span><span class="er">=</span>.N,         by=<span class="kw">list</span>(provstate)]
+data[, n_city<span class="op">:</span><span class="er">=</span>.N,              by=<span class="kw">list</span>(city)]
+data &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(data)
+
+<span class="co">#--------------------------------------------------------------</span>
+<span class="co"># Step 3: label encode categorical data (lightgbm requirement)</span>
+<span class="co">#--------------------------------------------------------------</span>
+
+features=<span class="st"> </span><span class="kw">names</span>(data)
+<span class="cf">for</span> (f <span class="cf">in</span> features) {
+  <span class="cf">if</span> (<span class="kw">class</span>(data[[f]])<span class="op">==</span><span class="st">&quot;character&quot;</span>) {
+    levels &lt;-<span class="st"> </span><span class="kw">unique</span>(<span class="kw">c</span>(data[[f]]))
+    data[[f]] &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="kw">factor</span>(data[[f]], <span class="dt">levels=</span>levels))
+  }
+}
+
+<span class="co">#--------------------------------------------------------------</span>
+<span class="co"># Step 4: Covert all the variable to numeric</span>
+<span class="co">#--------------------------------------------------------------</span>
+data[] &lt;-<span class="st"> </span><span class="kw">lapply</span>(data, as.numeric)
+<span class="co">#str(data)</span></code></pre></div>
+<p>At this point, all of our variables are numeric and there are no missing values or NAs in this prepared data.</p>
+</div>
+<div id="validation-strategy" class="section level2">
+<h2><span class="header-section-number">7.5</span> Validation strategy</h2>
+<p>In general, cross-validation is the widely used approach to estimate performance of the model. In this approach, training data is split into equal sized (k) folds. The model is then trained on k-1 folds and performance is measured on the remaining fold <span class="citation">(M. K. and K. Johnson, 2018)</span>. However, this approach is not suitable for our data. To further explain this, the observations in our dataset are time-based so training the model on recent years (for example 2000- 2010) and evaluating the performance on previous years (for example 1980- 1990) would not be meaningful. To overcome this issue, we use a time-based split to evaluate the performance of our model. In other words, we use the observations in the year 2016 as the test set and the remaining observations as our training set.</p>
+<p>This way we can be ensured that the model we have trained is capable of classifying target variable in current context. Following is the code used to implement validation strategy:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#--------------------------------------</span>
+<span class="co"># validation split</span>
+<span class="co">#--------------------------------------</span>
+train &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year <span class="op">&lt;=</span><span class="st"> </span><span class="dv">2015</span>)
+test  &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2016</span>)</code></pre></div>
+<p>The next stage of the process is to convert our data into lgb.Dataset format. During this process, we create a vector containing names of all our categorical variables and specify it while constructing lgb.Dataset as shown in the code below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#--------------------------------------</span>
+<span class="co"># define all categorical features</span>
+<span class="co">#--------------------------------------</span>
+cat_vars &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(year, month, day, region, country, 
+         provstate, city, attack_type, target_type, weapon_type, 
+         target_nalty, group_name, crit1_pol_eco_rel_soc, crit2_publicize, 
+         crit3_os_intl_hmn_law, part_of_multiple_attacks, 
+         individual_attack, attack_success, extended, 
+         intl_logistical_attack, intl_ideological_attack, 
+         conflict_index) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">names</span>()
+
+<span class="co">#----------------------------------------------------------------------------</span>
+<span class="co"># construct lgb.Dataset, and specify target variable and categorical features</span>
+<span class="co">#----------------------------------------------------------------------------</span>
+dtrain =<span class="st"> </span><span class="kw">lgb.Dataset</span>(
+  <span class="dt">data =</span> <span class="kw">as.matrix</span>(train[, <span class="kw">colnames</span>(train) <span class="op">!=</span><span class="st"> &quot;suicide_attack&quot;</span>]), 
+  <span class="dt">label =</span> train<span class="op">$</span>suicide_attack, 
+  <span class="dt">categorical_feature =</span> cat_vars
+  )
+
+dtest =<span class="st"> </span><span class="kw">lgb.Dataset</span>(
+  <span class="dt">data =</span> <span class="kw">as.matrix</span>(test[, <span class="kw">colnames</span>(test) <span class="op">!=</span><span class="st"> &quot;suicide_attack&quot;</span>]), 
+  <span class="dt">label =</span> test<span class="op">$</span>suicide_attack, 
+  <span class="dt">categorical_feature =</span> cat_vars
+  )</code></pre></div>
+<p>Notice that we have assigned labels separately to training and test data. To summarize the process, we will train the model on training data (dtrain), evaluate performance on test data (dtest).</p>
+</div>
+<div id="hyperparameter-optimization" class="section level2">
+<h2><span class="header-section-number">7.6</span> Hyperparameter optimization</h2>
+<p>Hyperparameter tuning is a process of finding the optimal value for the chosen model parameter. According to <span class="citation">(M. K. and K. Johnson, 2018)</span>, parameter tuning is an important aspect of modeling because they control the model complexity. And so that, it also affects any variance-base trade-off that can be made. There are several approaches for hyperparameter tuning such as Bayesian optimization, grid-search, and randomized search. For this analysis, we used random grid-search approach for hyperparameter optimization. In simple words, Randomized grid-search means we concentrate on the hyperparameter space that looks promising. This judgment often comes with the prior experience of working with similar data. Several researchers <span class="citation">(Bergstra &amp; Bengio, 2012; Bergstra, Bardenet, Bengio, &amp; Kégl, 2011)</span> have also supported the randomized grid-search approach and have claimed that random search is much more efficient than any other approaches for optimizing the parameters.</p>
+<p>For this analysis, we choose number of leaves, max depth, bagging fraction, feature fraction and scale positive weight which are the most important parameters to control the complexity of the model. As shown in the code chunk below, first we define a grid by specifying parameter and iterate over a number of models in grids to find the optimal parameter values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">84</span>)
+<span class="co">#--------------------------------------</span>
+<span class="co"># define grid in hyperparameter space</span>
+<span class="co">#--------------------------------------</span>
+grid &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(
+  <span class="dt">num_leaves        =</span> <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>),
+  <span class="dt">max_depth         =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">6</span>),
+  <span class="dt">bagging_fraction  =</span> <span class="kw">c</span>(<span class="fl">0.7</span>,<span class="fl">0.8</span>,<span class="fl">0.9</span>),
+  <span class="dt">feature_fraction  =</span> <span class="kw">c</span>(<span class="fl">0.7</span>,<span class="fl">0.8</span>,<span class="fl">0.9</span>),
+  <span class="dt">scale_pos_weight  =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">7</span>) 
+)
+
+<span class="co">#--------------------------------------</span>
+<span class="co"># Iterate model over set grid</span>
+<span class="co">#--------------------------------------</span>
+model &lt;-<span class="st"> </span><span class="kw">list</span>()
+perf &lt;-<span class="st"> </span><span class="kw">numeric</span>(<span class="kw">nrow</span>(grid))
+
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(grid)) {
+  <span class="co"># cat(&quot;Model ***&quot;, i , &quot;*** of &quot;, nrow(grid), &quot;\n&quot;)</span>
+  model[[i]] &lt;-<span class="st"> </span><span class="kw">lgb.train</span>(
+      <span class="kw">list</span>(<span class="dt">objective         =</span> <span class="st">&quot;binary&quot;</span>,
+           <span class="dt">metric            =</span> <span class="st">&quot;auc&quot;</span>,
+           <span class="dt">learning_rate     =</span> <span class="fl">0.01</span>,
+           <span class="dt">num_leaves        =</span> grid[i, <span class="st">&quot;num_leaves&quot;</span>],
+           <span class="dt">max_depth         =</span> grid[i, <span class="st">&quot;max_depth&quot;</span>],
+           <span class="dt">bagging_fraction  =</span> grid[i, <span class="st">&quot;bagging_fraction&quot;</span>],
+           <span class="dt">feature_fraction  =</span> grid[i, <span class="st">&quot;feature_fraction&quot;</span>],
+           <span class="dt">scale_pos_weight  =</span> grid[i, <span class="st">&quot;scale_pos_weight&quot;</span>]),
+      dtrain,
+      <span class="dt">valids =</span> <span class="kw">list</span>(<span class="dt">validation =</span> dtest),
+      <span class="dt">nthread =</span> <span class="dv">4</span>, 
+      <span class="dt">nrounds =</span> <span class="dv">5</span>,
+      <span class="dt">verbose=</span> <span class="dv">0</span>, 
+      <span class="dt">early_stopping_rounds =</span> <span class="dv">3</span>
+    )
+  perf[i] &lt;-<span class="st"> </span><span class="kw">max</span>(<span class="kw">unlist</span>(model[[i]]<span class="op">$</span>record_evals[[<span class="st">&quot;validation&quot;</span>]][[<span class="st">&quot;auc&quot;</span>]][[<span class="st">&quot;eval&quot;</span>]]))
+  <span class="kw">invisible</span>(<span class="kw">gc</span>()) <span class="co"># free up memory after each model run</span>
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#--------------------------------------</span>
+<span class="co">#Extract results</span>
+<span class="co">#--------------------------------------</span>
+<span class="kw">cat</span>(<span class="st">&quot;Model &quot;</span>, <span class="kw">which.max</span>(perf), <span class="st">&quot; is with max AUC: &quot;</span>, <span class="kw">max</span>(perf), <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>,<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</code></pre></div>
+<pre><code>Model 42 is with max AUC: 0.9538</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">best_params =<span class="st"> </span>grid[<span class="kw">which.max</span>(perf), ]</code></pre></div>
+<table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-130">Table 7.2: </span>Hyperparameter tuning result
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+num_leaves
+</th>
+<th style="text-align:right;">
+max_depth
+</th>
+<th style="text-align:right;">
+bagging_fraction
+</th>
+<th style="text-align:right;">
+feature_fraction
+</th>
+<th style="text-align:right;">
+scale_pos_weight
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+42
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+0.7
+</td>
+<td style="text-align:right;">
+0.9
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+</tbody>
+</table>
+<p>From the hyperparameter tuning, we have extracted the optimized values based on AUC. Next, we use these parameters in the model building process.</p>
+</div>
+<div id="modelling-3" class="section level2">
+<h2><span class="header-section-number">7.7</span> Modelling</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># assign params from hyperparameter tuning result</span>
+params &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">objective =</span> <span class="st">&quot;binary&quot;</span>, 
+               <span class="dt">metric =</span> <span class="st">&quot;auc&quot;</span>, 
+               <span class="dt">num_leaves =</span> best_params<span class="op">$</span>num_leaves,
+               <span class="dt">max_depth =</span> best_params<span class="op">$</span>max_depth,
+               <span class="dt">bagging_fraction =</span> best_params<span class="op">$</span>bagging_fraction,
+               <span class="dt">feature_fraction =</span> best_params<span class="op">$</span>feature_fraction,
+               <span class="dt">scale_pos_weight=</span> best_params<span class="op">$</span>scale_pos_weight,
+               <span class="dt">bagging_freq =</span> <span class="dv">1</span>,
+               <span class="dt">learning_rate =</span> <span class="fl">0.01</span>)
+
+model &lt;-<span class="st"> </span><span class="kw">lgb.train</span>(params, 
+                   dtrain, 
+                   <span class="dt">valids =</span> <span class="kw">list</span>(<span class="dt">validation =</span> dtest), 
+                   <span class="dt">nrounds =</span> <span class="dv">1000</span>, 
+                   <span class="dt">early_stopping_rounds =</span> <span class="dv">50</span>,
+                   <span class="dt">eval_freq =</span> <span class="dv">100</span>)</code></pre></div>
+<pre><code>[1]:    validation&#39;s auc:0.937756 
+[101]:  validation&#39;s auc:0.961098 
+[201]:  validation&#39;s auc:0.962072 
+[301]:  validation&#39;s auc:0.963493 </code></pre>
+<div id="model-evaluation" class="section level3">
+<h3><span class="header-section-number">7.7.1</span> Model evaluation</h3>
+<p>In order to evaluate the performance of our model on test data, we have used AUC metric which is commonly used in binary classification problem. From the trained model, we extract AUC score on test data from the best iteration with the code as shown below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="st">&quot;Best iteration: &quot;</span>, model<span class="op">$</span>best_iter, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</code></pre></div>
+<pre><code>Best iteration:  288 </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="st">&quot;Validation AUC @ best iter: &quot;</span>, 
+    <span class="kw">max</span>(<span class="kw">unlist</span>(model<span class="op">$</span>record_evals[[<span class="st">&quot;validation&quot;</span>]][[<span class="st">&quot;auc&quot;</span>]][[<span class="st">&quot;eval&quot;</span>]])), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</code></pre></div>
+<pre><code>Validation AUC @ best iter:  0.9636 </code></pre>
+<p>To deal with overfitting, we have specified early stopping criteria which stops the model training if no improvement is observed within specified rounds. At the best iteration, our model achieves 96.36% accuracy on validation data. To further investigate the error rate, we use the confusion matrix.</p>
+</div>
+<div id="confusion-matrix" class="section level3">
+<h3><span class="header-section-number">7.7.2</span> Confusion Matrix</h3>
+<p>A confusion matrix is an another way to evaluate performance of binary classification model.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get predictions on validation data</span>
+test_matrix &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(test[, <span class="kw">colnames</span>(test) <span class="op">!=</span><span class="st"> &quot;suicide_attack&quot;</span>])
+test_preds =<span class="st"> </span><span class="kw">predict</span>(model, <span class="dt">data =</span> test_matrix, <span class="dt">n =</span> model<span class="op">$</span>best_iter)
+
+<span class="kw">confusionMatrix</span>(
+  <span class="dt">data =</span> <span class="kw">as.factor</span>(<span class="kw">ifelse</span>(test_preds <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">0</span>)), 
+  <span class="dt">reference =</span> <span class="kw">as.factor</span>(test<span class="op">$</span>suicide_attack)
+  )</code></pre></div>
+<pre><code>Confusion Matrix and Statistics
+
+          Reference
+Prediction    0    1
+         0 3339   91
+         1  249  582
+                                             
+               Accuracy : 0.92               
+                 95% CI : (0.912, 0.928)     
+    No Information Rate : 0.842              
+    P-Value [Acc &gt; NIR] : &lt;0.0000000000000002
+                                             
+                  Kappa : 0.726              
+ Mcnemar&#39;s Test P-Value : &lt;0.0000000000000002
+                                             
+            Sensitivity : 0.931              
+            Specificity : 0.865              
+         Pos Pred Value : 0.973              
+         Neg Pred Value : 0.700              
+             Prevalence : 0.842              
+         Detection Rate : 0.784              
+   Detection Prevalence : 0.805              
+      Balanced Accuracy : 0.898              
+                                             
+       &#39;Positive&#39; Class : 0                  
+                                             </code></pre>
+<p>The accuracy of 0.92 indicates that our model is 92% accurate. Out of all the metrics, the one we are most interested in is specificity. We want our classifier to predict the “Yes”/ “1” instances of suicide attack with higher accuracy. From the contingency table, we can see that our model has correctly predicted 582 out of 673 instances of “1”/ “Yes” in suicide attacks and achieves an accuracy of 86.5%.</p>
+</div>
+<div id="feature-importance" class="section level3">
+<h3><span class="header-section-number">7.7.3</span> Feature importance</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get feature importance</span>
+fi =<span class="st"> </span><span class="kw">lgb.importance</span>(model, <span class="dt">percentage =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<table class="table" style="font-size: 13px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-135">Table 7.3: </span>Feature importance matrix (Top 15)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Feature
+</th>
+<th style="text-align:right;">
+Gain
+</th>
+<th style="text-align:right;">
+Cover
+</th>
+<th style="text-align:right;">
+Frequency
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+weapon_type
+</td>
+<td style="text-align:right;">
+0.4447
+</td>
+<td style="text-align:right;">
+0.2088
+</td>
+<td style="text-align:right;">
+0.0773
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nkill
+</td>
+<td style="text-align:right;">
+0.1883
+</td>
+<td style="text-align:right;">
+0.1298
+</td>
+<td style="text-align:right;">
+0.1389
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+provstate
+</td>
+<td style="text-align:right;">
+0.1285
+</td>
+<td style="text-align:right;">
+0.2174
+</td>
+<td style="text-align:right;">
+0.2370
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+attack_type
+</td>
+<td style="text-align:right;">
+0.0781
+</td>
+<td style="text-align:right;">
+0.1080
+</td>
+<td style="text-align:right;">
+0.0616
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+target_type
+</td>
+<td style="text-align:right;">
+0.0353
+</td>
+<td style="text-align:right;">
+0.0618
+</td>
+<td style="text-align:right;">
+0.0964
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nwound
+</td>
+<td style="text-align:right;">
+0.0291
+</td>
+<td style="text-align:right;">
+0.0591
+</td>
+<td style="text-align:right;">
+0.0820
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+attack_success
+</td>
+<td style="text-align:right;">
+0.0229
+</td>
+<td style="text-align:right;">
+0.0244
+</td>
+<td style="text-align:right;">
+0.0464
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+city
+</td>
+<td style="text-align:right;">
+0.0221
+</td>
+<td style="text-align:right;">
+0.0979
+</td>
+<td style="text-align:right;">
+0.0543
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+day
+</td>
+<td style="text-align:right;">
+0.0110
+</td>
+<td style="text-align:right;">
+0.0279
+</td>
+<td style="text-align:right;">
+0.0699
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+n_attack_year
+</td>
+<td style="text-align:right;">
+0.0069
+</td>
+<td style="text-align:right;">
+0.0095
+</td>
+<td style="text-align:right;">
+0.0195
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+group_name
+</td>
+<td style="text-align:right;">
+0.0067
+</td>
+<td style="text-align:right;">
+0.0081
+</td>
+<td style="text-align:right;">
+0.0165
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+n_peace_keepers
+</td>
+<td style="text-align:right;">
+0.0052
+</td>
+<td style="text-align:right;">
+0.0049
+</td>
+<td style="text-align:right;">
+0.0143
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+refugee_origin
+</td>
+<td style="text-align:right;">
+0.0048
+</td>
+<td style="text-align:right;">
+0.0048
+</td>
+<td style="text-align:right;">
+0.0130
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+target_nalty
+</td>
+<td style="text-align:right;">
+0.0033
+</td>
+<td style="text-align:right;">
+0.0121
+</td>
+<td style="text-align:right;">
+0.0156
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+n_city_year
+</td>
+<td style="text-align:right;">
+0.0018
+</td>
+<td style="text-align:right;">
+0.0019
+</td>
+<td style="text-align:right;">
+0.0043
+</td>
+</tr>
+</tbody>
+</table>
+<p>Gain is the most important measure for predictions and represents feature contribution to the model. This is calculated by comparing the contribution of each feature for each tree in the model. The Cover metric indicates a number of observations related to the particular feature. The Frequency measure is the percentage representing the relative number of times a particular feature occurs in the trees of the model. In simple words, it tells us how often the feature is used in the model <span class="citation">(T. Chen, Tong, Benesty, &amp; Tang, 2018; Pandya, 2018)</span>.</p>
+<p>From the feature importance matrix, we can see that type of weapon contributes the most in terms of gain followed by number of people killed, province state, type of attack and type of target. In order to allow the model to decide whether an attack will be a suicide attack or not, these features are the most important compared to others.</p>
+</div>
+</div>
+<div id="model-interpretation" class="section level2">
+<h2><span class="header-section-number">7.8</span> Model interpretation</h2>
+<p>To further analyze the reasoning behind the model’s decision-making process, we randomly select one observation from test data and compare it with the predicted value based on features contribution. With the code chunk as shown below, we have extracted the predicted value from our trained model for the second observation in the test data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="kw">paste</span>(<span class="st">&quot;predicted value from model: &quot;</span>, test_preds[[<span class="dv">2</span>]]))</code></pre></div>
+<pre><code>predicted value from model:  0.854690873381908</code></pre>
+<p>The predicted value is 0.85 (i.e. &gt; 0.5) which means our model indicates that the incident likely to be a suicide attack (i.e. “Yes” instance in suicide attack variable). Next, we use <code>lgb.interpret</code> function to compute feature contribution components of raw score prediction for this observation.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#extract interpretation for 2nd observation in (transformed) test data</span>
+test_matrix &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(test[, <span class="kw">colnames</span>(test)])
+tree_interpretation &lt;-<span class="st"> </span><span class="kw">lgb.interprete</span>(model, <span class="dt">data =</span> test_matrix, <span class="dt">idxset =</span> <span class="dv">2</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-138"></span>
+<div id="htmlwidget-ab3c86ba7370057e7d93" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ab3c86ba7370057e7d93">{"x":{"hc_opts":{"title":{"text":"Model/ Tree Interpretation by Features Contribution"},"yAxis":{"title":{"text":"Contribution"},"labels":{"format":"{value}"}},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[{"name":"nkill","y":-10.87,"color":"#0d6bc6"},{"name":"provstate","y":8.59,"color":"#ce1e36"},{"name":"weapon_type","y":-6.13,"color":"#0d6bc6"},{"name":"attack_type","y":2.48,"color":"#ce1e36"},{"name":"city","y":2.18,"color":"#ce1e36"},{"name":"attack_success","y":2.14,"color":"#ce1e36"},{"name":"n_attack_year","y":-1.35,"color":"#0d6bc6"},{"name":"target_type","y":-0.96,"color":"#0d6bc6"},{"name":"refugee_origin","y":0.81,"color":"#ce1e36"},{"name":"n_peace_keepers","y":0.77,"color":"#ce1e36"}],"dataLabels":{"enabled":true},"showInLegend":false,"type":"bar"}],"xAxis":{"categories":["nkill","provstate","weapon_type","attack_type","city","attack_success","n_attack_year","target_type","refugee_origin","n_peace_keepers"],"title":{"text":"Feature"}},"tooltip":{"pointFormat":"{point.y}"}},"theme":{"colors":["#00AACC","#FF4E00","#B90000","#5F9B0A","#CD6723"],"chart":{"backgroundColor":{"linearGradient":[0,0,0,150],"stops":[[0,"#CAE1F4"],[1,"#EEEEEE"]]},"style":{"fontFamily":"Open Sans"}},"title":{"align":"left"},"subtitle":{"align":"left"},"legend":{"align":"right","verticalAlign":"bottom"},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Open+Sans","debug":false},"evals":[],"jsHooks":[]}</script>
+<p class="caption">
+Figure 7.4: Model interpretation for 2nd observation
+</p>
+</div>
+<p>In the plot above, ten most important features (with higher contribution) are shown on the Y axis and their contribution value is on the X-axis. The negative value indicates contradiction and a positive value represents support. Our trained model has taken the decision to predict 0.85 for the second observation based on the contribution level of the above-mentioned features. Although nkill and weapon_type variables are one of most important features based on gain however their contribution toward prediction is negative. On the other hand, province, city, attack type and attack success features have a positive value which indicates support.</p>
+<p>In our model, we have transformed the data to numeric. However, we can extract the raw test data (before transformation) and specific columns to compare the actual values with feature contribution plot above.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># extract raw test data</span>
+tmp_test &lt;-<span class="st"> </span>df_class <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2016</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(suicide_attack, nkill, provstate, weapon_type, 
+         attack_type, city, attack_success, target_type, 
+         refugee_origin, n_peace_keepers)
+
+<span class="co"># Extract second observation</span>
+tmp_test &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">t</span>(tmp_test[<span class="dv">2</span>, ]))
+
+<span class="co"># display result</span>
+knitr<span class="op">::</span><span class="kw">kable</span>(tmp_test, <span class="dt">booktabs=</span> <span class="ot">TRUE</span>,
+             <span class="dt">caption =</span> <span class="st">&quot;Actual values in 2nd observation in test set&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">latex_options =</span> <span class="st">&quot;HOLD_position&quot;</span>, <span class="dt">font_size =</span> <span class="dv">12</span>, <span class="dt">full_width =</span> F)</code></pre></div>
+<table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-139">Table 7.4: </span>Actual values in 2nd observation in test set
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+suicide_attack
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nkill
+</td>
+<td style="text-align:left;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+provstate
+</td>
+<td style="text-align:left;">
+Kabul
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+weapon_type
+</td>
+<td style="text-align:left;">
+Explosives/Bombs/Dynamite
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+attack_type
+</td>
+<td style="text-align:left;">
+Bombing/Explosion
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+city
+</td>
+<td style="text-align:left;">
+Kabul
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+attack_success
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+target_type
+</td>
+<td style="text-align:left;">
+Business
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+refugee_origin
+</td>
+<td style="text-align:left;">
+2501410
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+n_peace_keepers
+</td>
+<td style="text-align:left;">
+14
+</td>
+</tr>
+</tbody>
+</table>
+<p>The predicted value from our model for the second observation is 0.85 and comparing it with actual value suggests that the incident was, in fact, a suicide attack as shown in the table above where the value is “1” in suicide attack variable. For this specific observation, our model suggests that Kabul as a city and provstate, Bombing/Explosion as attack type and attack being successful contributes positively toward prediction. In contrast, 3 fatalities, business as a target type and explosives as a weapon type contributes negatively to the prediction. Our trained model has correctly predicted 582 out of 673 instances of “1”/ “Yes” in suicide attacks and achieves an accuracy of 86.5% with this decision making process.</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="12">
+<li id="fn12"><p><a href="https://github.com/Microsoft/LightGBM/blob/master/docs/Features.rst#references" class="uri">https://github.com/Microsoft/LightGBM/blob/master/docs/Features.rst#references</a><a href="7-classification.html#fnref12">↩</a></p></li>
+<li id="fn13"><p><a href="https://github.com/Microsoft/LightGBM/blob/master/docs/Features.rst#references" class="uri">https://github.com/Microsoft/LightGBM/blob/master/docs/Features.rst#references</a><a href="7-classification.html#fnref13">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="6-time-series.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="8-conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": [["thesis.pdf", "PDF"], ["thesis.epub", "EPUB"], ["thesis.docx", "Word"]],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

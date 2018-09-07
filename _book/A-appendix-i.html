@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence</title>
+  <meta name="description" content="Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence">
+  <meta name="generator" content="bookdown 0.7.13 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence" />
+  
+  
+  
+
+<meta name="author" content="Pranav Pandya">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="8-conclusion.html">
+<link rel="next" href="references.html">
+<style type="text/css">
+p.abstract{
+  text-align: center;
+  font-weight: bold;
+}
+div.abstract{
+  margin: auto;
+  width: 90%;
+}
+</style>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.2.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.7.1.9000/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.38.3/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.38.3/plotly-latest.min.js"></script>
+<script src="libs/proj4js-2.3.15/proj4.js"></script>
+<link href="libs/highcharts-6.0.3/css/motion.css" rel="stylesheet" />
+<script src="libs/highcharts-6.0.3/highcharts.js"></script>
+<script src="libs/highcharts-6.0.3/highcharts-3d.js"></script>
+<script src="libs/highcharts-6.0.3/highcharts-more.js"></script>
+<script src="libs/highcharts-6.0.3/modules/stock.js"></script>
+<script src="libs/highcharts-6.0.3/modules/heatmap.js"></script>
+<script src="libs/highcharts-6.0.3/modules/treemap.js"></script>
+<script src="libs/highcharts-6.0.3/modules/annotations.js"></script>
+<script src="libs/highcharts-6.0.3/modules/boost.js"></script>
+<script src="libs/highcharts-6.0.3/modules/data.js"></script>
+<script src="libs/highcharts-6.0.3/modules/drag-panes.js"></script>
+<script src="libs/highcharts-6.0.3/modules/drilldown.js"></script>
+<script src="libs/highcharts-6.0.3/modules/funnel.js"></script>
+<script src="libs/highcharts-6.0.3/modules/item-series.js"></script>
+<script src="libs/highcharts-6.0.3/modules/offline-exporting.js"></script>
+<script src="libs/highcharts-6.0.3/modules/overlapping-datalabels.js"></script>
+<script src="libs/highcharts-6.0.3/modules/parallel-coordinates.js"></script>
+<script src="libs/highcharts-6.0.3/modules/sankey.js"></script>
+<script src="libs/highcharts-6.0.3/modules/solid-gauge.js"></script>
+<script src="libs/highcharts-6.0.3/modules/streamgraph.js"></script>
+<script src="libs/highcharts-6.0.3/modules/sunburst.js"></script>
+<script src="libs/highcharts-6.0.3/modules/vector.js"></script>
+<script src="libs/highcharts-6.0.3/modules/wordcloud.js"></script>
+<script src="libs/highcharts-6.0.3/modules/xrange.js"></script>
+<script src="libs/highcharts-6.0.3/modules/exporting.js"></script>
+<script src="libs/highcharts-6.0.3/modules/export-data.js"></script>
+<script src="libs/highcharts-6.0.3/maps/modules/map.js"></script>
+<script src="libs/highcharts-6.0.3/plugins/grouped-categories.js"></script>
+<script src="libs/highcharts-6.0.3/plugins/motion.js"></script>
+<script src="libs/highcharts-6.0.3/plugins/multicolor_series.js"></script>
+<script src="libs/highcharts-6.0.3/custom/reset.js"></script>
+<script src="libs/highcharts-6.0.3/custom/symbols-extra.js"></script>
+<script src="libs/highcharts-6.0.3/custom/text-symbols.js"></script>
+<script src="libs/highchart-binding-0.6.0/highchart.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
+<script src="libs/vis-4.20.1/vis.min.js"></script>
+<script src="libs/visNetwork-binding-2.0.4/visNetwork.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#definition-of-terrorism"><i class="fa fa-check"></i>Definition of terrorism</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#problem-statement"><i class="fa fa-check"></i>Problem statement</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#research-design-and-data"><i class="fa fa-check"></i>Research design and data</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#policy-and-practice-implications"><i class="fa fa-check"></i>Policy and practice implications</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#deliverables"><i class="fa fa-check"></i>Deliverables</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html"><i class="fa fa-check"></i><b>1</b> Essentials of Counterterrorism</a><ul>
+<li class="chapter" data-level="1.1" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#intelligence-disciplines"><i class="fa fa-check"></i><b>1.1</b> Intelligence disciplines</a></li>
+<li class="chapter" data-level="1.2" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#osint-and-data-relevance"><i class="fa fa-check"></i><b>1.2</b> OSINT and data relevance</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#open-source-databases-on-terrorism"><i class="fa fa-check"></i><b>1.2.1</b> Open-source databases on terrorism</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#whats-important-in-terrorism-research"><i class="fa fa-check"></i><b>1.3</b> What’s important in terrorism research?</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#primary-vs-secondary-sources"><i class="fa fa-check"></i><b>1.3.1</b> Primary vs secondary sources</a></li>
+<li class="chapter" data-level="1.3.2" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#use-of-statistical-analysis"><i class="fa fa-check"></i><b>1.3.2</b> Use of statistical analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-literature-review.html"><a href="2-literature-review.html"><i class="fa fa-check"></i><b>2</b> Literature Review</a><ul>
+<li class="chapter" data-level="2.1" data-path="2-literature-review.html"><a href="2-literature-review.html#overview-of-prior-research"><i class="fa fa-check"></i><b>2.1</b> Overview of prior research</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="2-literature-review.html"><a href="2-literature-review.html#harsh-realities"><i class="fa fa-check"></i><b>2.1.1</b> Harsh realities</a></li>
+<li class="chapter" data-level="2.1.2" data-path="2-literature-review.html"><a href="2-literature-review.html#review-of-relevant-literature"><i class="fa fa-check"></i><b>2.1.2</b> Review of relevant literature</a></li>
+<li class="chapter" data-level="2.1.3" data-path="2-literature-review.html"><a href="2-literature-review.html#gtd-and-machine-learning-in-previous-research"><i class="fa fa-check"></i><b>2.1.3</b> GTD and machine learning in previous research</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="2-literature-review.html"><a href="2-literature-review.html#literature-gap-and-relevance"><i class="fa fa-check"></i><b>2.2</b> Literature gap and relevance</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html"><i class="fa fa-check"></i><b>3</b> Impact Analysis</a><ul>
+<li class="chapter" data-level="3.1" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html#data-preparation"><i class="fa fa-check"></i><b>3.1</b> Data preparation</a></li>
+<li class="chapter" data-level="3.2" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html#global-overview"><i class="fa fa-check"></i><b>3.2</b> Global overview</a></li>
+<li class="chapter" data-level="3.3" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html#the-top-10-most-active-and-violent-groups"><i class="fa fa-check"></i><b>3.3</b> The top 10 most active and violent groups</a></li>
+<li class="chapter" data-level="3.4" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html#the-major-and-minor-epicenters"><i class="fa fa-check"></i><b>3.4</b> The major and minor epicenters</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Statistical Hypothesis Testing</a><ul>
+<li class="chapter" data-level="4.1" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#data-preparation-1"><i class="fa fa-check"></i><b>4.1</b> Data preparation</a></li>
+<li class="chapter" data-level="4.2" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#correlation-test"><i class="fa fa-check"></i><b>4.2</b> Correlation test</a></li>
+<li class="chapter" data-level="4.3" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#hypothesis-test-fatalities-vs-groups"><i class="fa fa-check"></i><b>4.3</b> Hypothesis test: fatalities vs groups</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#anova-test"><i class="fa fa-check"></i><b>4.3.1</b> ANOVA test</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#posthoc-test"><i class="fa fa-check"></i><b>4.3.2</b> PostHoc test</a></li>
+<li class="chapter" data-level="4.3.3" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#interpretation"><i class="fa fa-check"></i><b>4.3.3</b> Interpretation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html"><i class="fa fa-check"></i><b>5</b> Pattern discovery</a><ul>
+<li class="chapter" data-level="5.1" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#data-preparation-2"><i class="fa fa-check"></i><b>5.1</b> Data preparation</a></li>
+<li class="chapter" data-level="5.2" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#explanation-of-key-terms"><i class="fa fa-check"></i><b>5.2</b> Explanation of key terms</a></li>
+<li class="chapter" data-level="5.3" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#islamic-state-isil"><i class="fa fa-check"></i><b>5.3</b> Islamic State (ISIL)</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#apriori-model-summary"><i class="fa fa-check"></i><b>5.3.1</b> Apriori model summary</a></li>
+<li class="chapter" data-level="5.3.2" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#top-5-patterns-isil"><i class="fa fa-check"></i><b>5.3.2</b> Top 5 patterns (ISIL)</a></li>
+<li class="chapter" data-level="5.3.3" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#network-graph-isil"><i class="fa fa-check"></i><b>5.3.3</b> Network graph (ISIL)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#taliban"><i class="fa fa-check"></i><b>5.4</b> Taliban</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#apriori-model-summary-1"><i class="fa fa-check"></i><b>5.4.1</b> Apriori model summary</a></li>
+<li class="chapter" data-level="5.4.2" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#top-5-patterns-taliban"><i class="fa fa-check"></i><b>5.4.2</b> Top 5 patterns (Taliban)</a></li>
+<li class="chapter" data-level="5.4.3" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#network-graph-taliban"><i class="fa fa-check"></i><b>5.4.3</b> Network graph (Taliban)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#boko-haram"><i class="fa fa-check"></i><b>5.5</b> Boko Haram</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#apriori-model-summary-2"><i class="fa fa-check"></i><b>5.5.1</b> Apriori model summary</a></li>
+<li class="chapter" data-level="5.5.2" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#top-5-patterns-boko-haram"><i class="fa fa-check"></i><b>5.5.2</b> Top 5 patterns (Boko Haram)</a></li>
+<li class="chapter" data-level="5.5.3" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#network-graph-boko-haram"><i class="fa fa-check"></i><b>5.5.3</b> Network graph (Boko Haram)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-time-series.html"><a href="6-time-series.html"><i class="fa fa-check"></i><b>6</b> Time-series Forecasting</a><ul>
+<li class="chapter" data-level="6.1" data-path="6-time-series.html"><a href="6-time-series.html#afghanistan-predict-future-attacks"><i class="fa fa-check"></i><b>6.1</b> Afghanistan (Predict future attacks)</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="6-time-series.html"><a href="6-time-series.html#data-preparation-3"><i class="fa fa-check"></i><b>6.1.1</b> Data preparation</a></li>
+<li class="chapter" data-level="6.1.2" data-path="6-time-series.html"><a href="6-time-series.html#seasonality-analysis"><i class="fa fa-check"></i><b>6.1.2</b> Seasonality analysis</a></li>
+<li class="chapter" data-level="6.1.3" data-path="6-time-series.html"><a href="6-time-series.html#correlation-test-1"><i class="fa fa-check"></i><b>6.1.3</b> Correlation test</a></li>
+<li class="chapter" data-level="6.1.4" data-path="6-time-series.html"><a href="6-time-series.html#modelling"><i class="fa fa-check"></i><b>6.1.4</b> Modelling</a></li>
+<li class="chapter" data-level="6.1.5" data-path="6-time-series.html"><a href="6-time-series.html#evaluating-models-performance"><i class="fa fa-check"></i><b>6.1.5</b> Evaluating models’ Performance</a></li>
+<li class="chapter" data-level="6.1.6" data-path="6-time-series.html"><a href="6-time-series.html#ensemble"><i class="fa fa-check"></i><b>6.1.6</b> Ensemble</a></li>
+<li class="chapter" data-level="6.1.7" data-path="6-time-series.html"><a href="6-time-series.html#forecast-future-number-of-attacks"><i class="fa fa-check"></i><b>6.1.7</b> Forecast future number of attacks</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="6-time-series.html"><a href="6-time-series.html#iraq-predict-future-fatalities"><i class="fa fa-check"></i><b>6.2</b> Iraq (Predict future fatalities)</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="6-time-series.html"><a href="6-time-series.html#data-preparation-4"><i class="fa fa-check"></i><b>6.2.1</b> Data preparation</a></li>
+<li class="chapter" data-level="6.2.2" data-path="6-time-series.html"><a href="6-time-series.html#seasonality-analysis-1"><i class="fa fa-check"></i><b>6.2.2</b> Seasonality analysis</a></li>
+<li class="chapter" data-level="6.2.3" data-path="6-time-series.html"><a href="6-time-series.html#correlation-test-2"><i class="fa fa-check"></i><b>6.2.3</b> Correlation test</a></li>
+<li class="chapter" data-level="6.2.4" data-path="6-time-series.html"><a href="6-time-series.html#modelling-1"><i class="fa fa-check"></i><b>6.2.4</b> Modelling</a></li>
+<li class="chapter" data-level="6.2.5" data-path="6-time-series.html"><a href="6-time-series.html#ensemble-1"><i class="fa fa-check"></i><b>6.2.5</b> Ensemble</a></li>
+<li class="chapter" data-level="6.2.6" data-path="6-time-series.html"><a href="6-time-series.html#forecast-future-fatalities"><i class="fa fa-check"></i><b>6.2.6</b> Forecast future fatalities</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="6-time-series.html"><a href="6-time-series.html#sahel-region-predict-future-attacks"><i class="fa fa-check"></i><b>6.3</b> SAHEL Region (Predict future attacks)</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="6-time-series.html"><a href="6-time-series.html#data-preparation-5"><i class="fa fa-check"></i><b>6.3.1</b> Data preparation</a></li>
+<li class="chapter" data-level="6.3.2" data-path="6-time-series.html"><a href="6-time-series.html#seasonality-analysis-2"><i class="fa fa-check"></i><b>6.3.2</b> Seasonality analysis</a></li>
+<li class="chapter" data-level="6.3.3" data-path="6-time-series.html"><a href="6-time-series.html#correlation-test-3"><i class="fa fa-check"></i><b>6.3.3</b> Correlation test</a></li>
+<li class="chapter" data-level="6.3.4" data-path="6-time-series.html"><a href="6-time-series.html#modelling-2"><i class="fa fa-check"></i><b>6.3.4</b> Modelling</a></li>
+<li class="chapter" data-level="6.3.5" data-path="6-time-series.html"><a href="6-time-series.html#ensemble-2"><i class="fa fa-check"></i><b>6.3.5</b> Ensemble</a></li>
+<li class="chapter" data-level="6.3.6" data-path="6-time-series.html"><a href="6-time-series.html#forecast-future-attacks"><i class="fa fa-check"></i><b>6.3.6</b> Forecast future attacks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-classification.html"><a href="7-classification.html"><i class="fa fa-check"></i><b>7</b> Predicting Class Probabilities</a><ul>
+<li class="chapter" data-level="7.1" data-path="7-classification.html"><a href="7-classification.html#evolution-of-gradient-boosting-machines"><i class="fa fa-check"></i><b>7.1</b> Evolution of Gradient Boosting Machines</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="7-classification.html"><a href="7-classification.html#lightgbm"><i class="fa fa-check"></i><b>7.1.1</b> LightGBM</a></li>
+<li class="chapter" data-level="7.1.2" data-path="7-classification.html"><a href="7-classification.html#the-mechanism-behind-the-improvised-accuracy"><i class="fa fa-check"></i><b>7.1.2</b> The mechanism behind the improvised accuracy</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="7-classification.html"><a href="7-classification.html#data-preparation-6"><i class="fa fa-check"></i><b>7.2</b> Data preparation</a></li>
+<li class="chapter" data-level="7.3" data-path="7-classification.html"><a href="7-classification.html#overview-of-the-target-variable"><i class="fa fa-check"></i><b>7.3</b> Overview of the target variable</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="7-classification.html"><a href="7-classification.html#dealing-with-class-imbalance"><i class="fa fa-check"></i><b>7.3.1</b> Dealing with class imbalance</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="7-classification.html"><a href="7-classification.html#feature-engineering"><i class="fa fa-check"></i><b>7.4</b> Feature engineering</a></li>
+<li class="chapter" data-level="7.5" data-path="7-classification.html"><a href="7-classification.html#validation-strategy"><i class="fa fa-check"></i><b>7.5</b> Validation strategy</a></li>
+<li class="chapter" data-level="7.6" data-path="7-classification.html"><a href="7-classification.html#hyperparameter-optimization"><i class="fa fa-check"></i><b>7.6</b> Hyperparameter optimization</a></li>
+<li class="chapter" data-level="7.7" data-path="7-classification.html"><a href="7-classification.html#modelling-3"><i class="fa fa-check"></i><b>7.7</b> Modelling</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="7-classification.html"><a href="7-classification.html#model-evaluation"><i class="fa fa-check"></i><b>7.7.1</b> Model evaluation</a></li>
+<li class="chapter" data-level="7.7.2" data-path="7-classification.html"><a href="7-classification.html#confusion-matrix"><i class="fa fa-check"></i><b>7.7.2</b> Confusion Matrix</a></li>
+<li class="chapter" data-level="7.7.3" data-path="7-classification.html"><a href="7-classification.html#feature-importance"><i class="fa fa-check"></i><b>7.7.3</b> Feature importance</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="7-classification.html"><a href="7-classification.html#model-interpretation"><i class="fa fa-check"></i><b>7.8</b> Model interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-conclusion.html"><a href="8-conclusion.html"><i class="fa fa-check"></i><b>8</b> Discussion and Conclusion</a><ul>
+<li class="chapter" data-level="8.1" data-path="8-conclusion.html"><a href="8-conclusion.html#research-limitations-and-future-work"><i class="fa fa-check"></i><b>8.1</b> Research limitations and future work</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="A-appendix-i.html"><a href="A-appendix-i.html"><i class="fa fa-check"></i><b>A</b> Appendix I</a><ul>
+<li class="chapter" data-level="A.1" data-path="A-appendix-i.html"><a href="A-appendix-i.html#initial-data-preparation-script"><i class="fa fa-check"></i><b>A.1</b> Initial data preparation script</a></li>
+<li class="chapter" data-level="A.2" data-path="A-appendix-i.html"><a href="A-appendix-i.html#list-of-variables-and-short-description"><i class="fa fa-check"></i><b>A.2</b> List of variables and short description</a></li>
+<li class="chapter" data-level="A.3" data-path="A-appendix-i.html"><a href="A-appendix-i.html#r-session-info"><i class="fa fa-check"></i><b>A.3</b> R Session Info:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="appendix-i" class="section level1">
+<h1><span class="header-section-number">A</span> Appendix I</h1>
+<div id="initial-data-preparation-script" class="section level2">
+<h2><span class="header-section-number">A.1</span> Initial data preparation script</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="kw">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)
+pacman<span class="op">::</span><span class="kw">p_load</span>(knitr, pryr, openxlsx, tidyverse, 
+               data.table, DT, DescTools, RCurl, countrycode)
+<span class="kw">options</span>(<span class="dt">warn =</span> <span class="op">-</span><span class="dv">1</span>, <span class="dt">digits =</span> <span class="dv">4</span>, <span class="dt">scipen =</span> <span class="dv">999</span>)
+<span class="co">#------------------------------------------------------------</span>
+<span class="co">#External data (country geocodes to replace missing lat lons)</span>
+<span class="co">#------------------------------------------------------------</span>
+geocodes &lt;-<span class="kw">fread</span>(<span class="st">&quot;https://github.com/oughton/geocode/raw/master/example/result.csv&quot;</span>)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(<span class="dt">country =</span> V1, <span class="dt">country_latitude =</span> V2, <span class="dt">country_longitude =</span> V3) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ISO =</span> <span class="kw">countrycode</span>(country, <span class="st">&#39;country.name&#39;</span>, <span class="st">&#39;iso3c&#39;</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(ISO)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(ISO, country_latitude, country_longitude)
+
+<span class="kw">saveRDS</span>(geocodes, <span class="st">&quot;country_geocodes.rds&quot;</span>)  
+country_geocodes &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;country_geocodes.rds&quot;</span>)
+
+<span class="co">#---------------------------------------</span>
+<span class="co">#data preparation (GTD)</span>
+<span class="co">#---------------------------------------</span>
+tmp &lt;-<span class="st"> </span><span class="kw">read.xlsx</span>(<span class="st">&quot;data/data_preparation/globalterrorismdb_0617dist.xlsx&quot;</span>, 
+                 <span class="dt">sheet =</span> <span class="dv">1</span>, <span class="dt">colNames =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(eventid, 
+         <span class="dt">year =</span> iyear, 
+         <span class="dt">month =</span> imonth, 
+         <span class="dt">day =</span> iday, 
+         <span class="dt">country =</span> country_txt, 
+         <span class="dt">region =</span> region_txt, 
+         provstate, 
+         city, 
+         latitude, <span class="co"># 2.7% NAs will be replaced with country level geocodes</span>
+         longitude,
+         <span class="dt">attack_type =</span> attacktype1_txt, 
+         <span class="dt">weapon_type =</span> weaptype1_txt, 
+         <span class="dt">target_type =</span> targtype1_txt, 
+         <span class="dt">target_nalty=</span> natlty1_txt, 
+         <span class="dt">group_name  =</span> gname, 
+         nkill,   <span class="co"># 5% NAs</span>
+         nwound,  <span class="co"># 9% NAs</span>
+         extended, 
+         <span class="dt">crit1_pol_eco_rel_soc =</span> crit1, 
+         <span class="dt">crit2_publicize =</span> crit2, 
+         <span class="dt">crit3_os_intl_hmn_law =</span> crit3, 
+         <span class="dt">part_of_multiple_attacks =</span> multiple, 
+         <span class="dt">attack_success =</span> success, 
+         <span class="dt">suicide_attack =</span> suicide, 
+         <span class="dt">individual_attack =</span> individual,
+         <span class="dt">intl_logistical_attack =</span> INT_LOG, 
+         <span class="dt">intl_ideological_attack =</span> INT_IDEO 
+         ) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">replace_na</span>(<span class="kw">list</span>(<span class="dt">provstate =</span> <span class="st">&quot;unknown&quot;</span>,       <span class="co"># replace nas with unknown</span>
+                  <span class="dt">city =</span>  <span class="st">&quot;unknown&quot;</span>,
+                  <span class="dt">target_nalty =</span> <span class="st">&quot;unknown&quot;</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ISO =</span> <span class="kw">countrycode</span>(country, <span class="st">&#39;country.name&#39;</span>, <span class="st">&#39;iso3c&#39;</span>), <span class="co">#standardize country name</span>
+         <span class="dt">month =</span> <span class="kw">if_else</span>(month <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">1</span>, month),<span class="co">#replace unknown month to 1 in 20 occurences </span>
+         <span class="dt">day =</span> <span class="kw">if_else</span>(day <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">1</span>, day), <span class="co">#replace unknown day to 1 in 891 occurences</span>
+         <span class="dt">date =</span> <span class="kw">paste</span>(year, month, day, <span class="dt">sep=</span><span class="st">&quot;-&quot;</span>),
+         <span class="dt">date =</span> <span class="kw">as.Date</span>(date, <span class="dt">format =</span> <span class="st">&quot;%Y-%m-%d&quot;</span>),
+         <span class="dt">weapon_type =</span> <span class="kw">if_else</span>(
+           weapon_type <span class="op">==</span><span class="st"> &quot;Vehicle (not to include vehicle-borne</span>
+<span class="st">                           explosives, i.e., car or truck bombs)&quot;</span>, 
+                          <span class="st">&quot;Vehicle&quot;</span>, weapon_type)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># shorten lengthy name</span>
+<span class="st">  </span><span class="kw">left_join</span>(country_geocodes) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">latitude =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(latitude), country_latitude, 
+                           latitude), <span class="co"># replace missing lat lons with country lat lons</span>
+         <span class="dt">longitude =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(longitude), country_longitude, longitude)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span><span class="kw">c</span>(country_latitude, country_longitude)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># replace missing lat lons in remaining (~14) disputed/dissolved countries </span>
+<span class="st">  </span><span class="co"># with country level lat long from prev obs</span>
+<span class="st">  </span><span class="kw">mutate</span>(
+    <span class="dt">latitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(latitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> </span>
+<span class="st">                          &quot;People&#39;s Republic of the Congo&quot;</span>, <span class="op">-</span><span class="fl">0.2</span>, latitude),
+     <span class="dt">longitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(longitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> </span>
+<span class="st">                           &quot;People&#39;s Republic of the Congo&quot;</span>, <span class="fl">15.8</span>, longitude),
+     <span class="dt">latitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(latitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> </span>
+<span class="st">                          &quot;Democratic Republic of the Congo&quot;</span>, <span class="op">-</span><span class="fl">4.0</span>, latitude),
+     <span class="dt">longitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(longitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> </span>
+<span class="st">                           &quot;Democratic Republic of the Congo&quot;</span>, <span class="fl">21.7</span>, longitude),
+     <span class="dt">latitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(latitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> </span>
+<span class="st">                          &quot;North Yemen&quot;</span>, <span class="fl">15.5</span>, latitude),
+     <span class="dt">longitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(longitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> </span>
+<span class="st">                           &quot;North Yemen&quot;</span>, <span class="fl">48.5</span>, longitude),
+     <span class="dt">latitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(latitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> </span>
+<span class="st">                          &quot;South Yemen&quot;</span>, <span class="fl">12.8</span>, latitude),
+     <span class="dt">longitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(longitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> </span>
+<span class="st">                           &quot;South Yemen&quot;</span>, <span class="fl">45.0</span>, longitude),
+     <span class="dt">latitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(latitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> </span>
+<span class="st">                          &quot;Western Sahara&quot;</span>, <span class="fl">27.4</span>, latitude),
+     <span class="dt">longitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(longitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> </span>
+<span class="st">                           &quot;Western Sahara&quot;</span>, <span class="op">-</span><span class="fl">9.0</span>, longitude),
+     <span class="dt">latitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(latitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> </span>
+<span class="st">                          &quot;Guadeloupe&quot;</span>, <span class="fl">16.2</span>, latitude),
+     <span class="dt">longitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(longitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> </span>
+<span class="st">                           &quot;Guadeloupe&quot;</span>, <span class="op">-</span><span class="fl">61.5</span>, longitude),
+     <span class="dt">latitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(latitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> </span>
+<span class="st">                          &quot;New Caledonia&quot;</span>, <span class="op">-</span><span class="fl">20.9</span>, latitude),
+     <span class="dt">longitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(longitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> </span>
+<span class="st">                           &quot;New Caledonia&quot;</span>, <span class="fl">165.6</span>, longitude),
+     <span class="dt">latitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(latitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> &quot;Martinique&quot;</span>, <span class="fl">14.6</span>, latitude),
+     <span class="dt">longitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(longitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> &quot;Martinique&quot;</span>, <span class="op">-</span><span class="fl">61.0</span>, longitude),
+     <span class="dt">latitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(latitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> &quot;Zaire&quot;</span>, <span class="op">-</span><span class="fl">2.5</span>, latitude),
+     <span class="dt">longitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(longitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> &quot;Zaire&quot;</span>, <span class="fl">28.8</span>, longitude),
+     <span class="dt">latitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(latitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> &quot;Kosovo&quot;</span>, <span class="fl">43.1</span>, latitude),
+     <span class="dt">longitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(longitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> &quot;Kosovo&quot;</span>, <span class="fl">20.7</span>, longitude),
+     <span class="dt">latitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(latitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> </span>
+<span class="st">                          &quot;Czechoslovakia&quot;</span>, <span class="fl">50.6</span>, latitude),
+     <span class="dt">longitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(longitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> </span>
+<span class="st">                           &quot;Czechoslovakia&quot;</span>, <span class="fl">14.0</span>, longitude),
+     <span class="dt">latitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(latitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> &quot;Yugoslavia&quot;</span>, <span class="fl">42.5</span>, latitude),
+     <span class="dt">longitude =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(longitude) <span class="op">&amp;</span><span class="st"> </span>country <span class="op">==</span><span class="st"> &quot;Yugoslavia&quot;</span>, <span class="fl">20.5</span>, longitude)
+     )
+
+<span class="co">#--------------------------------------------------------------</span>
+<span class="co">#External data (World Devlopment Indicators from worldbank api)</span>
+<span class="co">#--------------------------------------------------------------</span>
+<span class="kw">WDIsearch</span>(<span class="st">&#39;conflict&#39;</span>) <span class="co"># enter search text and extract code</span>
+
+ind =<span class="st"> </span><span class="kw">c</span>(
+  <span class="st">&quot;arms_export&quot;</span> =<span class="st"> &quot;MS.MIL.XPRT.KD&quot;</span>,   <span class="co"># Arms exports (SIPRI trend indicator values)</span>
+  <span class="st">&quot;arms_import&quot;</span> =<span class="st"> &quot;MS.MIL.MPRT.KD&quot;</span>,   <span class="co"># Arms imports (SIPRI trend indicator values)</span>
+  <span class="st">&quot;population&quot;</span> =<span class="st"> &quot;SP.POP.TOTL&quot;</span>,       <span class="co"># Population, total</span>
+  <span class="st">&quot;gdp_per_capita&quot;</span> =<span class="st"> &quot;NY.GDP.PCAP.KD&quot;</span>,<span class="co"># GDP per capita (constant 2010 US$)</span>
+  <span class="st">&quot;refugee_origin&quot;</span> =<span class="st"> &quot;SM.POP.REFG.OR&quot;</span>,<span class="co"># Refugee population by country of origin</span>
+  <span class="st">&quot;refugee_asylum&quot;</span> =<span class="st"> &quot;SM.POP.REFG&quot;</span>,   <span class="co"># Refugee population by country of asylum</span>
+  <span class="st">&quot;net_migration&quot;</span> =<span class="st"> &quot;SM.POP.NETM&quot;</span>,    <span class="co"># Net migration</span>
+  <span class="st">&quot;n_peace_keepers&quot;</span> =<span class="st"> &quot;VC.PKP.TOTL.UN&quot;</span>,<span class="co"># Presence of peace keepers </span>
+  <span class="st">&quot;conflict_index&quot;</span> =<span class="st"> &quot;IC.PI.CIR&quot;</span>)     <span class="co"># conflict index (0-10)</span>
+
+countries_vec &lt;-<span class="st"> </span><span class="kw">as.vector</span>(<span class="kw">unique</span>(df<span class="op">$</span>ISO)) <span class="co"># countries in gtd dataset</span>
+
+wdi_data &lt;-<span class="st"> </span><span class="kw">WDI</span>(<span class="dt">indicator =</span> ind, <span class="dt">start =</span> <span class="dv">1970</span>, <span class="dt">end =</span> <span class="dv">2016</span>, <span class="dt">extra =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(year, <span class="dt">ISO =</span> iso3c, arms_export, arms_import, population, 
+         gdp_per_capita, refugee_origin, refugee_asylum, net_migration, 
+         n_peace_keepers, conflict_index) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">drop_na</span>(ISO) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(ISO <span class="op">%in%</span><span class="st"> </span>countries_vec) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="co"># replacing NAs for visualization and modelling purpose</span>
+<span class="st">  </span><span class="kw">replace_na</span>(<span class="kw">list</span>(<span class="dt">arms_export =</span> <span class="dv">0</span>, 
+                  <span class="dt">arms_import =</span> <span class="dv">0</span>, 
+                  <span class="dt">population =</span> <span class="op">-</span><span class="dv">1</span>, 
+                  <span class="dt">gdp_per_capita =</span> <span class="dv">0</span>, 
+                  <span class="dt">refugee_origin =</span> <span class="dv">0</span>, 
+                  <span class="dt">refugee_asylum =</span> <span class="dv">0</span>, 
+                  <span class="dt">net_migration =</span> <span class="dv">0</span>, 
+                  <span class="dt">n_peace_keepers =</span> <span class="dv">0</span>, 
+                  <span class="dt">conflict_index =</span> <span class="op">-</span><span class="dv">1</span>)) 
+
+
+df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(wdi_data)
+<span class="kw">saveRDS</span>(df, <span class="st">&quot;gtd_clean_v2.rds&quot;</span>)
+
+<span class="co"># move all data to: gtd_eda/index/data  path for shiny and thesis writing</span>
+<span class="co"># &quot;df&quot; is the main file used throughout this research</span>
+
+<span class="co">#---------------------------------------</span>
+<span class="co"># iso3c file for worldmap</span>
+<span class="co">#---------------------------------------</span>
+countries &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(country) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">total =</span> <span class="kw">round</span>(<span class="kw">n</span>())) 
+countries<span class="op">$</span>iso3 &lt;-<span class="st"> </span><span class="kw">countrycode</span>(countries<span class="op">$</span>country, 
+                              <span class="dt">origin =</span> <span class="st">&quot;country.name&quot;</span>, <span class="dt">destination =</span> <span class="st">&quot;iso3c&quot;</span>)
+<span class="kw">saveRDS</span>(countries, <span class="st">&quot;countries.rds&quot;</span>)</code></pre></div>
+</div>
+<div id="list-of-variables-and-short-description" class="section level2">
+<h2><span class="header-section-number">A.2</span> List of variables and short description</h2>
+<table class="table" style="font-size: 12px; width: auto !important; ">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-141">Table A.1: </span>Short description of important variables
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Name of the Variable
+</th>
+<th style="text-align:left;">
+description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+eventid
+</td>
+<td style="text-align:left;">
+a 12-digit Event ID
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+year
+</td>
+<td style="text-align:left;">
+year in which the incident occurred
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+month
+</td>
+<td style="text-align:left;">
+month
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+day
+</td>
+<td style="text-align:left;">
+day
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+country
+</td>
+<td style="text-align:left;">
+country
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+region
+</td>
+<td style="text-align:left;">
+world region
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+provstate
+</td>
+<td style="text-align:left;">
+an administrative division or unit of a country
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+city
+</td>
+<td style="text-align:left;">
+city
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+latitude
+</td>
+<td style="text-align:left;">
+latitude
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+longitude
+</td>
+<td style="text-align:left;">
+longitude
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+attack_type
+</td>
+<td style="text-align:left;">
+method of attack (reflects the broad class of tactics used)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+weapon_type
+</td>
+<td style="text-align:left;">
+type of weapon used in the incident
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+target_type
+</td>
+<td style="text-align:left;">
+type of target/victim
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+target_nalty
+</td>
+<td style="text-align:left;">
+nationality of the target that was attacked
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+group_name
+</td>
+<td style="text-align:left;">
+name of the group that carried out the attack
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nkill
+</td>
+<td style="text-align:left;">
+number of total confirmed fatalities for the incident
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nwound
+</td>
+<td style="text-align:left;">
+number of confirmed non-fatal injuries
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+extended
+</td>
+<td style="text-align:left;">
+whether or not an incident extended more than 24 hours
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+crit1_pol_eco_rel_soc
+</td>
+<td style="text-align:left;">
+political, economic, religious, or social goal
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+crit2_publicize
+</td>
+<td style="text-align:left;">
+intention to coerce, or publicize to larger audience
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+crit3_os_intl_hmn_law
+</td>
+<td style="text-align:left;">
+action from the incident is outside intl humanitarian law
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+part_of_multiple_attacks
+</td>
+<td style="text-align:left;">
+whether an incident being part of multiple attacks
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+attack_success
+</td>
+<td style="text-align:left;">
+suicide attack
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+suicide_attack
+</td>
+<td style="text-align:left;">
+whether an incident was successful
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+individual_attack
+</td>
+<td style="text-align:left;">
+whether an attack carried out by unaffiliated Individual(s)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+intl_logistical_attack
+</td>
+<td style="text-align:left;">
+cross border incident
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+intl_ideological_attack
+</td>
+<td style="text-align:left;">
+attack on target of a different nationality
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ISO
+</td>
+<td style="text-align:left;">
+ISO code for country
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+date
+</td>
+<td style="text-align:left;">
+Approx. date of incident
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+arms_export
+</td>
+<td style="text-align:left;">
+Arms exports (SIPRI trend indicator values)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+arms_import
+</td>
+<td style="text-align:left;">
+Arms imports (SIPRI trend indicator values)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+population
+</td>
+<td style="text-align:left;">
+Population, total
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+gdp_per_capita
+</td>
+<td style="text-align:left;">
+GDP per capita (constant 2010 US$)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+refugee_origin
+</td>
+<td style="text-align:left;">
+Refugee population by country or territory of origin
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+refugee_asylum
+</td>
+<td style="text-align:left;">
+Refugee population by country or territory of asylum
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+net_migration
+</td>
+<td style="text-align:left;">
+Net migration
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+n_peace_keepers
+</td>
+<td style="text-align:left;">
+Presence of peace keepers
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+conflict_index
+</td>
+<td style="text-align:left;">
+Extent of conflict of interest regulation index (0-10)
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="r-session-info" class="section level2">
+<h2><span class="header-section-number">A.3</span> R Session Info:</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre></div>
+<pre><code>R version 3.5.0 (2018-04-23)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 17134)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United Kingdom.1252 
+[2] LC_CTYPE=English_United Kingdom.1252   
+[3] LC_MONETARY=English_United Kingdom.1252
+[4] LC_NUMERIC=C                           
+[5] LC_TIME=English_United Kingdom.1252    
+
+attached base packages:
+[1] parallel  grid      stats     graphics  grDevices utils     datasets 
+[8] methods   base     
+
+other attached packages:
+ [1] bindrcpp_0.2.2             ggthemes_3.5.0            
+ [3] servr_0.10                 lightgbm_2.1.2            
+ [5] R6_2.2.2                   pROC_1.12.1               
+ [7] caret_6.0-80               lattice_0.20-35           
+ [9] eply_0.1.2                 maps_3.3.0                
+[11] maptools_0.9-2             sp_1.3-1                  
+[13] ggmap_2.6.1                shiny_1.1.0               
+[15] treemapify_2.5.0           WDI_2.5                   
+[17] RJSONIO_1.3-0              imputeTS_2.7              
+[19] tseries_0.10-45            forecast_8.4              
+[21] tidyquant_0.5.5            forcats_0.3.0             
+[23] purrr_0.2.5                readr_1.1.1               
+[25] tidyr_0.8.1                tibble_1.4.2              
+[27] tidyverse_1.2.1            quantmod_0.4-13           
+[29] TTR_0.23-3                 PerformanceAnalytics_1.5.2
+[31] xts_0.10-2                 zoo_1.8-2                 
+[33] timetk_0.1.1               TSstudio_0.1.1.9000       
+[35] igraph_1.2.1               visNetwork_2.0.4          
+[37] arulesViz_1.3-1            arules_1.6-1              
+[39] Matrix_1.2-14              d3heatmap_0.6.1.2         
+[41] treemap_2.4-2              highcharter_0.6.0         
+[43] plotly_4.7.1.9000          ggfortify_0.4.5           
+[45] RColorBrewer_1.1-2         viridis_0.5.1             
+[47] viridisLite_0.3.0          leaflet.extras_1.0.0      
+[49] leaflet_2.0.1              countrycode_1.00.0        
+[51] lubridate_1.7.4            scales_0.5.0              
+[53] StandardizeText_1.0        GGally_1.4.0              
+[55] DescTools_0.99.24          R.utils_2.6.0             
+[57] R.oo_1.22.0                R.methodsS3_1.7.1         
+[59] kableExtra_0.9.0           tictoc_1.0                
+[61] pryr_0.1.4                 reshape_0.8.7             
+[63] stringi_1.1.7              stringr_1.3.1             
+[65] RCurl_1.95-4.10            bitops_1.0-6              
+[67] openxlsx_4.1.0             DT_0.4.15                 
+[69] data.table_1.11.4          pacman_0.4.6              
+[71] thesisdown_0.0.2           knitr_1.20                
+[73] bookdown_0.7.13            ggplot2_3.0.0.9000        
+[75] dplyr_0.7.5                devtools_1.13.5           
+
+loaded via a namespace (and not attached):
+  [1] prabclus_2.2-6       ModelMetrics_1.1.0   rpart_4.1-13        
+  [4] ggfittext_0.6.0      rlist_0.4.6.1        xml2_1.2.0          
+  [7] httpuv_1.4.4.1       assertthat_0.2.0     gower_0.1.2         
+ [10] xfun_0.2.9           hms_0.4.2            evaluate_0.10.1     
+ [13] promises_1.0.1       TSP_1.1-6            DEoptimR_1.0-8      
+ [16] caTools_1.17.1       dendextend_1.8.0     readxl_1.1.0        
+ [19] htmlwidgets_1.2.1    Quandl_2.8.0         ddalpha_1.3.4       
+ [22] stats4_3.5.0         crosstalk_1.0.0      colormap_0.1.4      
+ [25] backports_1.1.2      V8_1.5               trimcluster_0.1-2   
+ [28] gridBase_0.4-7       geosphere_1.5-7      abind_1.4-5         
+ [31] withr_2.1.2          sfsmisc_1.1-2        robustbase_0.93-1   
+ [34] vcd_1.4-4            gclus_1.3.1          mclust_5.4          
+ [37] mnormt_1.5-5         cluster_2.0.7-1      lazyeval_0.2.1      
+ [40] urca_1.3-0           crayon_1.3.4         labeling_0.3        
+ [43] recipes_0.1.3        pkgconfig_2.0.1      nlme_3.1-137        
+ [46] seriation_1.2-3      nnet_7.3-12          bindr_0.1.1         
+ [49] rlang_0.2.1          diptest_0.75-7       pls_2.6-0           
+ [52] stinepack_1.3        registry_0.5         modelr_0.1.2        
+ [55] cellranger_1.1.0     rprojroot_1.3-2      lmtest_0.9-36       
+ [58] boot_1.3-20          base64enc_0.1-3      whisker_0.3-2       
+ [61] png_0.1-7            rjson_0.2.20         KernSmooth_2.23-15  
+ [64] DRR_0.0.3            jpeg_0.1-8           memoise_1.1.0       
+ [67] magrittr_1.5         plyr_1.8.4           gplots_3.0.1        
+ [70] gdata_2.18.0         compiler_3.5.0       dimRed_0.1.0        
+ [73] cli_1.0.0            magic_1.5-8          MASS_7.3-49         
+ [76] tidyselect_0.2.4     highr_0.7            yaml_2.1.19         
+ [79] manipulate_1.0.1     tools_3.5.0          RgoogleMaps_1.4.2   
+ [82] rstudioapi_0.7       foreach_1.4.4        foreign_0.8-70      
+ [85] gridExtra_2.3        prodlim_2018.04.18   scatterplot3d_0.3-41
+ [88] digest_0.6.15        lava_1.6.1           proto_1.0.0         
+ [91] quadprog_1.5-5       fpc_2.1-11           Rcpp_0.12.17        
+ [94] broom_0.4.4          later_0.7.3          httr_1.3.1          
+ [97] psych_1.8.4          kernlab_0.9-26       colorspace_1.3-2    
+[100] rvest_0.3.2          CVST_0.2-2           splines_3.5.0       
+[103] RcppRoll_0.3.0       expm_0.999-2         mapproj_1.2.6       
+[106] flexmix_2.3-14       xtable_1.8-2         jsonlite_1.5        
+[109] geometry_0.3-6       timeDate_3043.102    modeltools_0.2-21   
+[112] ipred_0.9-6          pillar_1.2.3         htmltools_0.3.6     
+[115] mime_0.5             glue_1.2.0           class_7.3-14        
+[118] codetools_0.2-15     mvtnorm_1.0-8        curl_3.2            
+[121] gtools_3.8.1         zip_1.0.0            survival_2.41-3     
+[124] rmarkdown_1.10       munsell_0.5.0        e1071_1.6-8         
+[127] uroot_2.0-9          iterators_1.0.9      haven_1.1.1         
+[130] fracdiff_1.4-2       reshape2_1.4.3       gtable_0.2.0        </code></pre>
+
+<!--
+The bib chunk below must go last in this document according to how R Markdown renders.  More info is at http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
+-->
+
+<!-- 
+If you'd like to change the name of the bibliography to something else,
+delete "References" and replace it.
+-->
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="8-conclusion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": [["thesis.pdf", "PDF"], ["thesis.epub", "EPUB"], ["thesis.docx", "Word"]],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
