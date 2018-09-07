@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence</title>
+  <meta name="description" content="Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence">
+  <meta name="generator" content="bookdown 0.7.13 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence" />
+  
+  
+  
+
+<meta name="author" content="Pranav Pandya">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="1-essentials-counter.html">
+<style type="text/css">
+p.abstract{
+  text-align: center;
+  font-weight: bold;
+}
+div.abstract{
+  margin: auto;
+  width: 90%;
+}
+</style>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.2.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.7.1.9000/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.38.3/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.38.3/plotly-latest.min.js"></script>
+<script src="libs/proj4js-2.3.15/proj4.js"></script>
+<link href="libs/highcharts-6.0.3/css/motion.css" rel="stylesheet" />
+<script src="libs/highcharts-6.0.3/highcharts.js"></script>
+<script src="libs/highcharts-6.0.3/highcharts-3d.js"></script>
+<script src="libs/highcharts-6.0.3/highcharts-more.js"></script>
+<script src="libs/highcharts-6.0.3/modules/stock.js"></script>
+<script src="libs/highcharts-6.0.3/modules/heatmap.js"></script>
+<script src="libs/highcharts-6.0.3/modules/treemap.js"></script>
+<script src="libs/highcharts-6.0.3/modules/annotations.js"></script>
+<script src="libs/highcharts-6.0.3/modules/boost.js"></script>
+<script src="libs/highcharts-6.0.3/modules/data.js"></script>
+<script src="libs/highcharts-6.0.3/modules/drag-panes.js"></script>
+<script src="libs/highcharts-6.0.3/modules/drilldown.js"></script>
+<script src="libs/highcharts-6.0.3/modules/funnel.js"></script>
+<script src="libs/highcharts-6.0.3/modules/item-series.js"></script>
+<script src="libs/highcharts-6.0.3/modules/offline-exporting.js"></script>
+<script src="libs/highcharts-6.0.3/modules/overlapping-datalabels.js"></script>
+<script src="libs/highcharts-6.0.3/modules/parallel-coordinates.js"></script>
+<script src="libs/highcharts-6.0.3/modules/sankey.js"></script>
+<script src="libs/highcharts-6.0.3/modules/solid-gauge.js"></script>
+<script src="libs/highcharts-6.0.3/modules/streamgraph.js"></script>
+<script src="libs/highcharts-6.0.3/modules/sunburst.js"></script>
+<script src="libs/highcharts-6.0.3/modules/vector.js"></script>
+<script src="libs/highcharts-6.0.3/modules/wordcloud.js"></script>
+<script src="libs/highcharts-6.0.3/modules/xrange.js"></script>
+<script src="libs/highcharts-6.0.3/modules/exporting.js"></script>
+<script src="libs/highcharts-6.0.3/modules/export-data.js"></script>
+<script src="libs/highcharts-6.0.3/maps/modules/map.js"></script>
+<script src="libs/highcharts-6.0.3/plugins/grouped-categories.js"></script>
+<script src="libs/highcharts-6.0.3/plugins/motion.js"></script>
+<script src="libs/highcharts-6.0.3/plugins/multicolor_series.js"></script>
+<script src="libs/highcharts-6.0.3/custom/reset.js"></script>
+<script src="libs/highcharts-6.0.3/custom/symbols-extra.js"></script>
+<script src="libs/highcharts-6.0.3/custom/text-symbols.js"></script>
+<script src="libs/highchart-binding-0.6.0/highchart.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
+<script src="libs/vis-4.20.1/vis.min.js"></script>
+<script src="libs/visNetwork-binding-2.0.4/visNetwork.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#definition-of-terrorism"><i class="fa fa-check"></i>Definition of terrorism</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#problem-statement"><i class="fa fa-check"></i>Problem statement</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#research-design-and-data"><i class="fa fa-check"></i>Research design and data</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#policy-and-practice-implications"><i class="fa fa-check"></i>Policy and practice implications</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#deliverables"><i class="fa fa-check"></i>Deliverables</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html"><i class="fa fa-check"></i><b>1</b> Essentials of Counterterrorism</a><ul>
+<li class="chapter" data-level="1.1" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#intelligence-disciplines"><i class="fa fa-check"></i><b>1.1</b> Intelligence disciplines</a></li>
+<li class="chapter" data-level="1.2" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#osint-and-data-relevance"><i class="fa fa-check"></i><b>1.2</b> OSINT and data relevance</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#open-source-databases-on-terrorism"><i class="fa fa-check"></i><b>1.2.1</b> Open-source databases on terrorism</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#whats-important-in-terrorism-research"><i class="fa fa-check"></i><b>1.3</b> What’s important in terrorism research?</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#primary-vs-secondary-sources"><i class="fa fa-check"></i><b>1.3.1</b> Primary vs secondary sources</a></li>
+<li class="chapter" data-level="1.3.2" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#use-of-statistical-analysis"><i class="fa fa-check"></i><b>1.3.2</b> Use of statistical analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-literature-review.html"><a href="2-literature-review.html"><i class="fa fa-check"></i><b>2</b> Literature Review</a><ul>
+<li class="chapter" data-level="2.1" data-path="2-literature-review.html"><a href="2-literature-review.html#overview-of-prior-research"><i class="fa fa-check"></i><b>2.1</b> Overview of prior research</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="2-literature-review.html"><a href="2-literature-review.html#harsh-realities"><i class="fa fa-check"></i><b>2.1.1</b> Harsh realities</a></li>
+<li class="chapter" data-level="2.1.2" data-path="2-literature-review.html"><a href="2-literature-review.html#review-of-relevant-literature"><i class="fa fa-check"></i><b>2.1.2</b> Review of relevant literature</a></li>
+<li class="chapter" data-level="2.1.3" data-path="2-literature-review.html"><a href="2-literature-review.html#gtd-and-machine-learning-in-previous-research"><i class="fa fa-check"></i><b>2.1.3</b> GTD and machine learning in previous research</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="2-literature-review.html"><a href="2-literature-review.html#literature-gap-and-relevance"><i class="fa fa-check"></i><b>2.2</b> Literature gap and relevance</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html"><i class="fa fa-check"></i><b>3</b> Impact Analysis</a><ul>
+<li class="chapter" data-level="3.1" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html#data-preparation"><i class="fa fa-check"></i><b>3.1</b> Data preparation</a></li>
+<li class="chapter" data-level="3.2" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html#global-overview"><i class="fa fa-check"></i><b>3.2</b> Global overview</a></li>
+<li class="chapter" data-level="3.3" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html#the-top-10-most-active-and-violent-groups"><i class="fa fa-check"></i><b>3.3</b> The top 10 most active and violent groups</a></li>
+<li class="chapter" data-level="3.4" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html#the-major-and-minor-epicenters"><i class="fa fa-check"></i><b>3.4</b> The major and minor epicenters</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Statistical Hypothesis Testing</a><ul>
+<li class="chapter" data-level="4.1" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#data-preparation-1"><i class="fa fa-check"></i><b>4.1</b> Data preparation</a></li>
+<li class="chapter" data-level="4.2" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#correlation-test"><i class="fa fa-check"></i><b>4.2</b> Correlation test</a></li>
+<li class="chapter" data-level="4.3" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#hypothesis-test-fatalities-vs-groups"><i class="fa fa-check"></i><b>4.3</b> Hypothesis test: fatalities vs groups</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#anova-test"><i class="fa fa-check"></i><b>4.3.1</b> ANOVA test</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#posthoc-test"><i class="fa fa-check"></i><b>4.3.2</b> PostHoc test</a></li>
+<li class="chapter" data-level="4.3.3" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#interpretation"><i class="fa fa-check"></i><b>4.3.3</b> Interpretation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html"><i class="fa fa-check"></i><b>5</b> Pattern discovery</a><ul>
+<li class="chapter" data-level="5.1" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#data-preparation-2"><i class="fa fa-check"></i><b>5.1</b> Data preparation</a></li>
+<li class="chapter" data-level="5.2" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#explanation-of-key-terms"><i class="fa fa-check"></i><b>5.2</b> Explanation of key terms</a></li>
+<li class="chapter" data-level="5.3" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#islamic-state-isil"><i class="fa fa-check"></i><b>5.3</b> Islamic State (ISIL)</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#apriori-model-summary"><i class="fa fa-check"></i><b>5.3.1</b> Apriori model summary</a></li>
+<li class="chapter" data-level="5.3.2" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#top-5-patterns-isil"><i class="fa fa-check"></i><b>5.3.2</b> Top 5 patterns (ISIL)</a></li>
+<li class="chapter" data-level="5.3.3" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#network-graph-isil"><i class="fa fa-check"></i><b>5.3.3</b> Network graph (ISIL)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#taliban"><i class="fa fa-check"></i><b>5.4</b> Taliban</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#apriori-model-summary-1"><i class="fa fa-check"></i><b>5.4.1</b> Apriori model summary</a></li>
+<li class="chapter" data-level="5.4.2" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#top-5-patterns-taliban"><i class="fa fa-check"></i><b>5.4.2</b> Top 5 patterns (Taliban)</a></li>
+<li class="chapter" data-level="5.4.3" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#network-graph-taliban"><i class="fa fa-check"></i><b>5.4.3</b> Network graph (Taliban)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#boko-haram"><i class="fa fa-check"></i><b>5.5</b> Boko Haram</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#apriori-model-summary-2"><i class="fa fa-check"></i><b>5.5.1</b> Apriori model summary</a></li>
+<li class="chapter" data-level="5.5.2" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#top-5-patterns-boko-haram"><i class="fa fa-check"></i><b>5.5.2</b> Top 5 patterns (Boko Haram)</a></li>
+<li class="chapter" data-level="5.5.3" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#network-graph-boko-haram"><i class="fa fa-check"></i><b>5.5.3</b> Network graph (Boko Haram)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-time-series.html"><a href="6-time-series.html"><i class="fa fa-check"></i><b>6</b> Time-series Forecasting</a><ul>
+<li class="chapter" data-level="6.1" data-path="6-time-series.html"><a href="6-time-series.html#afghanistan-predict-future-attacks"><i class="fa fa-check"></i><b>6.1</b> Afghanistan (Predict future attacks)</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="6-time-series.html"><a href="6-time-series.html#data-preparation-3"><i class="fa fa-check"></i><b>6.1.1</b> Data preparation</a></li>
+<li class="chapter" data-level="6.1.2" data-path="6-time-series.html"><a href="6-time-series.html#seasonality-analysis"><i class="fa fa-check"></i><b>6.1.2</b> Seasonality analysis</a></li>
+<li class="chapter" data-level="6.1.3" data-path="6-time-series.html"><a href="6-time-series.html#correlation-test-1"><i class="fa fa-check"></i><b>6.1.3</b> Correlation test</a></li>
+<li class="chapter" data-level="6.1.4" data-path="6-time-series.html"><a href="6-time-series.html#modelling"><i class="fa fa-check"></i><b>6.1.4</b> Modelling</a></li>
+<li class="chapter" data-level="6.1.5" data-path="6-time-series.html"><a href="6-time-series.html#evaluating-models-performance"><i class="fa fa-check"></i><b>6.1.5</b> Evaluating models’ Performance</a></li>
+<li class="chapter" data-level="6.1.6" data-path="6-time-series.html"><a href="6-time-series.html#ensemble"><i class="fa fa-check"></i><b>6.1.6</b> Ensemble</a></li>
+<li class="chapter" data-level="6.1.7" data-path="6-time-series.html"><a href="6-time-series.html#forecast-future-number-of-attacks"><i class="fa fa-check"></i><b>6.1.7</b> Forecast future number of attacks</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="6-time-series.html"><a href="6-time-series.html#iraq-predict-future-fatalities"><i class="fa fa-check"></i><b>6.2</b> Iraq (Predict future fatalities)</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="6-time-series.html"><a href="6-time-series.html#data-preparation-4"><i class="fa fa-check"></i><b>6.2.1</b> Data preparation</a></li>
+<li class="chapter" data-level="6.2.2" data-path="6-time-series.html"><a href="6-time-series.html#seasonality-analysis-1"><i class="fa fa-check"></i><b>6.2.2</b> Seasonality analysis</a></li>
+<li class="chapter" data-level="6.2.3" data-path="6-time-series.html"><a href="6-time-series.html#correlation-test-2"><i class="fa fa-check"></i><b>6.2.3</b> Correlation test</a></li>
+<li class="chapter" data-level="6.2.4" data-path="6-time-series.html"><a href="6-time-series.html#modelling-1"><i class="fa fa-check"></i><b>6.2.4</b> Modelling</a></li>
+<li class="chapter" data-level="6.2.5" data-path="6-time-series.html"><a href="6-time-series.html#ensemble-1"><i class="fa fa-check"></i><b>6.2.5</b> Ensemble</a></li>
+<li class="chapter" data-level="6.2.6" data-path="6-time-series.html"><a href="6-time-series.html#forecast-future-fatalities"><i class="fa fa-check"></i><b>6.2.6</b> Forecast future fatalities</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="6-time-series.html"><a href="6-time-series.html#sahel-region-predict-future-attacks"><i class="fa fa-check"></i><b>6.3</b> SAHEL Region (Predict future attacks)</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="6-time-series.html"><a href="6-time-series.html#data-preparation-5"><i class="fa fa-check"></i><b>6.3.1</b> Data preparation</a></li>
+<li class="chapter" data-level="6.3.2" data-path="6-time-series.html"><a href="6-time-series.html#seasonality-analysis-2"><i class="fa fa-check"></i><b>6.3.2</b> Seasonality analysis</a></li>
+<li class="chapter" data-level="6.3.3" data-path="6-time-series.html"><a href="6-time-series.html#correlation-test-3"><i class="fa fa-check"></i><b>6.3.3</b> Correlation test</a></li>
+<li class="chapter" data-level="6.3.4" data-path="6-time-series.html"><a href="6-time-series.html#modelling-2"><i class="fa fa-check"></i><b>6.3.4</b> Modelling</a></li>
+<li class="chapter" data-level="6.3.5" data-path="6-time-series.html"><a href="6-time-series.html#ensemble-2"><i class="fa fa-check"></i><b>6.3.5</b> Ensemble</a></li>
+<li class="chapter" data-level="6.3.6" data-path="6-time-series.html"><a href="6-time-series.html#forecast-future-attacks"><i class="fa fa-check"></i><b>6.3.6</b> Forecast future attacks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-classification.html"><a href="7-classification.html"><i class="fa fa-check"></i><b>7</b> Predicting Class Probabilities</a><ul>
+<li class="chapter" data-level="7.1" data-path="7-classification.html"><a href="7-classification.html#evolution-of-gradient-boosting-machines"><i class="fa fa-check"></i><b>7.1</b> Evolution of Gradient Boosting Machines</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="7-classification.html"><a href="7-classification.html#lightgbm"><i class="fa fa-check"></i><b>7.1.1</b> LightGBM</a></li>
+<li class="chapter" data-level="7.1.2" data-path="7-classification.html"><a href="7-classification.html#the-mechanism-behind-the-improvised-accuracy"><i class="fa fa-check"></i><b>7.1.2</b> The mechanism behind the improvised accuracy</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="7-classification.html"><a href="7-classification.html#data-preparation-6"><i class="fa fa-check"></i><b>7.2</b> Data preparation</a></li>
+<li class="chapter" data-level="7.3" data-path="7-classification.html"><a href="7-classification.html#overview-of-the-target-variable"><i class="fa fa-check"></i><b>7.3</b> Overview of the target variable</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="7-classification.html"><a href="7-classification.html#dealing-with-class-imbalance"><i class="fa fa-check"></i><b>7.3.1</b> Dealing with class imbalance</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="7-classification.html"><a href="7-classification.html#feature-engineering"><i class="fa fa-check"></i><b>7.4</b> Feature engineering</a></li>
+<li class="chapter" data-level="7.5" data-path="7-classification.html"><a href="7-classification.html#validation-strategy"><i class="fa fa-check"></i><b>7.5</b> Validation strategy</a></li>
+<li class="chapter" data-level="7.6" data-path="7-classification.html"><a href="7-classification.html#hyperparameter-optimization"><i class="fa fa-check"></i><b>7.6</b> Hyperparameter optimization</a></li>
+<li class="chapter" data-level="7.7" data-path="7-classification.html"><a href="7-classification.html#modelling-3"><i class="fa fa-check"></i><b>7.7</b> Modelling</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="7-classification.html"><a href="7-classification.html#model-evaluation"><i class="fa fa-check"></i><b>7.7.1</b> Model evaluation</a></li>
+<li class="chapter" data-level="7.7.2" data-path="7-classification.html"><a href="7-classification.html#confusion-matrix"><i class="fa fa-check"></i><b>7.7.2</b> Confusion Matrix</a></li>
+<li class="chapter" data-level="7.7.3" data-path="7-classification.html"><a href="7-classification.html#feature-importance"><i class="fa fa-check"></i><b>7.7.3</b> Feature importance</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="7-classification.html"><a href="7-classification.html#model-interpretation"><i class="fa fa-check"></i><b>7.8</b> Model interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-conclusion.html"><a href="8-conclusion.html"><i class="fa fa-check"></i><b>8</b> Discussion and Conclusion</a><ul>
+<li class="chapter" data-level="8.1" data-path="8-conclusion.html"><a href="8-conclusion.html#research-limitations-and-future-work"><i class="fa fa-check"></i><b>8.1</b> Research limitations and future work</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="A-appendix-i.html"><a href="A-appendix-i.html"><i class="fa fa-check"></i><b>A</b> Appendix I</a><ul>
+<li class="chapter" data-level="A.1" data-path="A-appendix-i.html"><a href="A-appendix-i.html#initial-data-preparation-script"><i class="fa fa-check"></i><b>A.1</b> Initial data preparation script</a></li>
+<li class="chapter" data-level="A.2" data-path="A-appendix-i.html"><a href="A-appendix-i.html#list-of-variables-and-short-description"><i class="fa fa-check"></i><b>A.2</b> List of variables and short description</a></li>
+<li class="chapter" data-level="A.3" data-path="A-appendix-i.html"><a href="A-appendix-i.html#r-session-info"><i class="fa fa-check"></i><b>A.3</b> R Session Info:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence</h1>
+<p class="author"><em>Pranav Pandya</em></p>
+<p class="date"><em>24th July 2018</em></p>
+<div class="abstract">
+<p class="abstract">Abstract</p>
+<p>In recent years, terrorism has taken a whole new dimension and becoming a global issue because of widespread attacks and comparatively high number of fatalities. Understanding the attack characteristics of most active groups and subsequent statistical analysis is, therefore, an important aspect toward counterterrorism support in the present situation. In this thesis, we use a variety of data mining techniques and descriptive analysis to determine, examine and characterize threat level from top ten most active and violent terrorist groups and then use machine learning algorithms to avail intelligence toward counterterrorism support. We use historical data of terrorist attacks that took place around the world between 1970 to 2016 from the open-source <a href="https://www.start.umd.edu/gtd/about/">Global Terrorism Database</a> and the primary objective is to translate terror incident related information into actionable intelligence. In other words, we chase the trajectory of terrorism in the present context with statistical methods and derive insights that can be useful. </p>
+<p>A major part of this thesis is based on supervised and unsupervised machine learning techniques. We use Apriori algorithm to discover patterns in various groups. From the discovered patterns, one of the interesting patterns we find is that ISIL is more likely to attack other terrorists (non-state militia) with bombing/explosion while having resulting fatalities between 6 to 10 whereas Boko Haram is more likely to target civilians with explosives, without suicide attack and resulting fatalities more than 50. Within the supervised machine learning context, we extend the previous research in time-series forecasting and make use of TBATS, ETS, Auto Arima and Neural Network model. We predict the future number of attacks in Afghanistan and SAHEL region, and the number of fatalities in Iraq at a monthly frequency. From time-series forecasting, we prove two things; the model that works best in one time-series data may not be the best in another time-series data, and that the use of ensemble significantly improves forecasting accuracy from base models. Similarly, in the classification modeling part, previous research lacks the use of algorithms that are recently developed. We also extend the previous research in binary classification problem and make use of a cutting-edge LightGBM algorithm to predict the probability of suicide attack. Our model achieves 96% accuracy in terms of AUC and correctly classifies “Yes” instances of suicide attacks with 86.5% accuracy.</p>
+</div>
+</div>
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>Today, we live in the world where terrorism is becoming a primary concern because of the growing number of terrorist incidents involving civilian fatalities and infrastructure damages. The ideology and intentions behind such attacks is indeed a matter of worry. Living under the constant threat of terrorist attacks in any place is no better than living in a jungle and worrying about which animal will attack you and when. An increase in a number of radicalized attacks around the world is a clear indication that terrorism transitioning to from a place to an idea, however, the existence of specific terror group and their attack characteristics over the period of time can be vital to fight terrorism and to engage peacekeeping missions effectively. Having said that number terrorist incidents are growing these days, availability of open-source data containing information of such incidents, recent developments in machine learning algorithms and technical infrastructure to handle a large amount of data open ups variety of ways to turn information into actionable intelligence.</p>
+<div id="definition-of-terrorism" class="section level2 unnumbered">
+<h2>Definition of terrorism</h2>
+<p>Terrorism in a broader sense includes state-sponsored and non-state sponsored terrorist activities. The scope of this research is limited to <strong>non-state sponsored</strong> terrorist activities only. Non-state actors in simple words mean entities that are not affiliated, directed or funded by the government and that exercise significant economic, political or social power and influence at a national and international level up to certain extent <span class="citation">(NIC, 2007)</span>. An example of non-state actors can be NGOs, religious organizations, multinational companies, armed groups or even an online (Internet) community. ISIL is the prime example of a non-state actor which falls under armed groups segment.</p>
+<blockquote>
+<p>Global Terrorism Database <span class="citation">(National Consortium for the Study of Terrorism and Responses to Terrorism (START), 2016)</span> defines terrorist attack as a threatened or actual use of illegal force and violence by a non-state actor to attain a political, economic, religious or social goal through fear, coercion or intimidation.</p>
+</blockquote>
+<p>This implies that three of the following attributes are always present in each event of our chosen dataset:</p>
+<ul>
+<li>The incident must be intentional – the result of a conscious calculation on the part of a perpetrator.</li>
+<li>The incident must entail some level of violence or immediate threat of violence including property violence, as well as violence against people.</li>
+<li>The perpetrators of the incidents must be sub-national actors.</li>
+</ul>
+</div>
+<div id="problem-statement" class="section level2 unnumbered">
+<h2>Problem statement</h2>
+<p>Nowadays, data is considered as the most valuable resource and machine learning makes it possible to interpret complex data however most use cases are seen in the business context such as music recommendation, predicting customer churn or finding a probability of having cancer. With recent development in machine learning algorithms and access to open source data and software, there are plenty of opportunities to correctly understand historical terrorist attacks and prevent the future conflicts. In the last decade, terrorist attacks have been increased significantly (data source: GTD) as shown in the plot below:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
+<img src="thesis_files/figure-html/unnamed-chunk-1-1.png" alt="Terrorist attacks around the world between 1970-2016" width="100%" />
+<p class="caption">
+Figure .: Terrorist attacks around the world between 1970-2016
+</p>
+</div>
+<p>After September 2001 attacks, USA and other powerful nations have carried out major operations to neutralize the power and spread of known and most violent terrorist groups within the targeted region such as in Afghanistan, Iraq and most recently in Syria. It’s also worth mentioning that the United Nations already have ongoing peacekeeping missions in conflicted regions around the world for a long time. However number of terror attacks continues to rise and in fact, it is almost on a peak in the last 5 years. This leads to a question why terrorism is becoming unstoppable despite the continued efforts. Understanding and interpreting the attack characteristics of relevant groups in line with their motivations to do so can reflect the bigger picture. An extensive research by <span class="citation">(Heger, 2010)</span> supports this argument and suggests that a group’s political intentions are revealed when we examine who or what it chooses to attack.</p>
+</div>
+<div id="research-design-and-data" class="section level2 unnumbered">
+<h2>Research design and data</h2>
+<p>This research employs a mix of qualitative and quantitative research methodology to achieve the set objective. In total, we evaluate cases of over 170,000 terrorist attacks. We start with exploratory data analysis to assess the impact on a global scale and then use a variety of data mining techniques to determine the most active and violent terrorist groups. This way, we ensure that the analysis reflects the situation in present years. We use descriptive statistics to understand the characteristics of each group over the period of time and locate the major and minor epicenters (most vulnerable regions) based on threat level. To examine whether or not chosen groups have a common link with the number of fatalities, we perform statistical hypothesis test with ANOVA and PostHoc test.</p>
+<p>The research then makes use of a variety of machine learning algorithms with supervised and unsupervised technique.</p>
+<blockquote>
+<p>According to <span class="citation">(Samuel, 1959)</span>, A well-known researcher in the field of artificial intelligence who coined the term “machine learning”, defines machine learning as a “field of study that gives computers the ability to learn without being explicitly programmed”. It is a subset of artificial intelligence which enables computers to learn from experience in order to create inference over a possible outcome used later to take a decision.</p>
+</blockquote>
+<p>With the Apriori algorithm, we discover interesting patterns through association rules for individual groups. This way, we can pinpoint the habits of specific groups. Next, we perform a time-series analysis to examine seasonal patterns and correlations. To address the broad question “when and where”, we use four time-series forecasting models namely Auto Arima, Neural Network, TBATS, and ETS to predict a future number of attacks and fatalities. We evaluate and compare the performance of each model on hold out set and use ensemble approach to further improve the accuracy of predictions. As illustrated in <a href="2-literature-review.html#literature-review">Literature review</a> section, most research in time-series forecasting addresses the country and year level predictions. We extend the previous research in this field with seasonality component and make forecasts on a monthly frequency. Similarly, in the classification modeling part, previous research lacks the use of algorithms that are recently developed and that (practically) out perform traditional algorithms such as logistic regression, random forests etc. We extend the previous research in binary classification context and make use of a cutting-edge LightGBM algorithm to predict the class probability of an attack involving a suicide attempt. We illustrate the importance of feature engineering and hyperparameter optimization for modeling process and describe the reasons why standard validation techniques such as cross-validation would be a bad choice for this data. We propose an alternate strategy for validation and use AUC metric as well as confusion matrix to evaluate model performance on unseen data. From the trained model, we extract the most important features and use explainer object to further investigate the decision-making process behind our model. The scope of analysis can be further extended with a shiny app which is also an integral part to make this research handy and interactive.</p>
+<p><strong>Data</strong></p>
+<p>This research project uses historical data of terrorist attacks that took place around the world between 1970 to 2016 from open-source <a href="https://www.start.umd.edu/gtd/about/">Global Terrorism Database (GTD)</a> as a main source of data. It is currently the most comprehensive unclassified database on terrorist events in the world and contains information on over 170,000 terrorist attacks. It contains information on the date and location of the incident, the weapons used and the nature of the target, the number of casualties and the group or individual responsible if identifiable. The total number of variables is more than 120 in this data. One of the main reason for choosing this database is because 4,000,000 news articles and 25,000 news sources were reviewed to prepare this data from 1998 to 2016 alone <span class="citation">(National Consortium for the Study of Terrorism and Responses to Terrorism (START), 2016)</span>.</p>
+<p>Main data is further enriched with country and year wise socio-economical conditions, arms import/export details and migration details from World Bank Open Data to get a multi-dimensional view for some specific analysis. This additional data falls under the category of early warning indicators (short term and long term) and potentially linked to the likelihood of violent conflicts as suggested by the researcher <span class="citation">(Walton, 2011)</span> and <span class="citation">(Stockholm International Peace Research Institute, 2017)</span>.</p>
+<p>An important aspect of this research is a use of open-source data and open-source software i.e. R. The reason why media-based data source is chosen as a primary source of data is that journalists are usually the first to report and document such incidents and in this regard, first-hand information plays a significant role in the quantitative analysis. Since the source of data is from publicly available sources, the term “intelligence” refers to the open-source intelligence (OSINT) category. Intelligence categories are further explained in the next chapter.</p>
+</div>
+<div id="policy-and-practice-implications" class="section level2 unnumbered">
+<h2>Policy and practice implications</h2>
+<p>This research project is an endeavor to achieve actionable intelligence using a machine learning approach and contributes positively to the counterterrorism policy. The outcome of this research provides descriptive findings of most lethal groups, corresponding pattern discovery through Apriori algorithm and predictive analysis through time-series forecasting and classification algorithm. Research findings and insights will be helpful to policy makers or authorities to take necessary steps in time to prevent future terrorist incidents.</p>
+</div>
+<div id="deliverables" class="section level2 unnumbered">
+<h2>Deliverables</h2>
+<ul>
+<li>a report in pdf version</li>
+<li>a report in gitbook version</li>
+<li>Shiny app</li>
+<li>R scripts</li>
+</ul>
+<p>To ensure that the research claims are (easily) reproducible, this thesis uses rmarkdown and bookdown package which allows code execution in line with a written report. <strong>gitbook version</strong> of this report is highly recommended over pdf version because it allows interactivity for some specific findings such as network graph in pattern discovery chapter. In addition, a shiny app in R is developed to make the practical aspects of this research handy, interactive and easily accessible. This app also allows to further extending the scope of analysis. All the scripts will be publicly accessible on my GitHub profile<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> after submission.</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p><a href="https://github.com/pranavpandya84" class="uri">https://github.com/pranavpandya84</a><a href="index.html#fnref1">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="1-essentials-counter.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": [["thesis.pdf", "PDF"], ["thesis.epub", "EPUB"], ["thesis.docx", "Word"]],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

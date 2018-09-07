@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence</title>
+  <meta name="description" content="Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence">
+  <meta name="generator" content="bookdown 0.7.13 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence" />
+  
+  
+  
+
+<meta name="author" content="Pranav Pandya">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="2-literature-review.html">
+<style type="text/css">
+p.abstract{
+  text-align: center;
+  font-weight: bold;
+}
+div.abstract{
+  margin: auto;
+  width: 90%;
+}
+</style>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.2.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.7.1.9000/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.38.3/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.38.3/plotly-latest.min.js"></script>
+<script src="libs/proj4js-2.3.15/proj4.js"></script>
+<link href="libs/highcharts-6.0.3/css/motion.css" rel="stylesheet" />
+<script src="libs/highcharts-6.0.3/highcharts.js"></script>
+<script src="libs/highcharts-6.0.3/highcharts-3d.js"></script>
+<script src="libs/highcharts-6.0.3/highcharts-more.js"></script>
+<script src="libs/highcharts-6.0.3/modules/stock.js"></script>
+<script src="libs/highcharts-6.0.3/modules/heatmap.js"></script>
+<script src="libs/highcharts-6.0.3/modules/treemap.js"></script>
+<script src="libs/highcharts-6.0.3/modules/annotations.js"></script>
+<script src="libs/highcharts-6.0.3/modules/boost.js"></script>
+<script src="libs/highcharts-6.0.3/modules/data.js"></script>
+<script src="libs/highcharts-6.0.3/modules/drag-panes.js"></script>
+<script src="libs/highcharts-6.0.3/modules/drilldown.js"></script>
+<script src="libs/highcharts-6.0.3/modules/funnel.js"></script>
+<script src="libs/highcharts-6.0.3/modules/item-series.js"></script>
+<script src="libs/highcharts-6.0.3/modules/offline-exporting.js"></script>
+<script src="libs/highcharts-6.0.3/modules/overlapping-datalabels.js"></script>
+<script src="libs/highcharts-6.0.3/modules/parallel-coordinates.js"></script>
+<script src="libs/highcharts-6.0.3/modules/sankey.js"></script>
+<script src="libs/highcharts-6.0.3/modules/solid-gauge.js"></script>
+<script src="libs/highcharts-6.0.3/modules/streamgraph.js"></script>
+<script src="libs/highcharts-6.0.3/modules/sunburst.js"></script>
+<script src="libs/highcharts-6.0.3/modules/vector.js"></script>
+<script src="libs/highcharts-6.0.3/modules/wordcloud.js"></script>
+<script src="libs/highcharts-6.0.3/modules/xrange.js"></script>
+<script src="libs/highcharts-6.0.3/modules/exporting.js"></script>
+<script src="libs/highcharts-6.0.3/modules/export-data.js"></script>
+<script src="libs/highcharts-6.0.3/maps/modules/map.js"></script>
+<script src="libs/highcharts-6.0.3/plugins/grouped-categories.js"></script>
+<script src="libs/highcharts-6.0.3/plugins/motion.js"></script>
+<script src="libs/highcharts-6.0.3/plugins/multicolor_series.js"></script>
+<script src="libs/highcharts-6.0.3/custom/reset.js"></script>
+<script src="libs/highcharts-6.0.3/custom/symbols-extra.js"></script>
+<script src="libs/highcharts-6.0.3/custom/text-symbols.js"></script>
+<script src="libs/highchart-binding-0.6.0/highchart.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
+<script src="libs/vis-4.20.1/vis.min.js"></script>
+<script src="libs/visNetwork-binding-2.0.4/visNetwork.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#definition-of-terrorism"><i class="fa fa-check"></i>Definition of terrorism</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#problem-statement"><i class="fa fa-check"></i>Problem statement</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#research-design-and-data"><i class="fa fa-check"></i>Research design and data</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#policy-and-practice-implications"><i class="fa fa-check"></i>Policy and practice implications</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#deliverables"><i class="fa fa-check"></i>Deliverables</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html"><i class="fa fa-check"></i><b>1</b> Essentials of Counterterrorism</a><ul>
+<li class="chapter" data-level="1.1" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#intelligence-disciplines"><i class="fa fa-check"></i><b>1.1</b> Intelligence disciplines</a></li>
+<li class="chapter" data-level="1.2" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#osint-and-data-relevance"><i class="fa fa-check"></i><b>1.2</b> OSINT and data relevance</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#open-source-databases-on-terrorism"><i class="fa fa-check"></i><b>1.2.1</b> Open-source databases on terrorism</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#whats-important-in-terrorism-research"><i class="fa fa-check"></i><b>1.3</b> What’s important in terrorism research?</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#primary-vs-secondary-sources"><i class="fa fa-check"></i><b>1.3.1</b> Primary vs secondary sources</a></li>
+<li class="chapter" data-level="1.3.2" data-path="1-essentials-counter.html"><a href="1-essentials-counter.html#use-of-statistical-analysis"><i class="fa fa-check"></i><b>1.3.2</b> Use of statistical analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-literature-review.html"><a href="2-literature-review.html"><i class="fa fa-check"></i><b>2</b> Literature Review</a><ul>
+<li class="chapter" data-level="2.1" data-path="2-literature-review.html"><a href="2-literature-review.html#overview-of-prior-research"><i class="fa fa-check"></i><b>2.1</b> Overview of prior research</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="2-literature-review.html"><a href="2-literature-review.html#harsh-realities"><i class="fa fa-check"></i><b>2.1.1</b> Harsh realities</a></li>
+<li class="chapter" data-level="2.1.2" data-path="2-literature-review.html"><a href="2-literature-review.html#review-of-relevant-literature"><i class="fa fa-check"></i><b>2.1.2</b> Review of relevant literature</a></li>
+<li class="chapter" data-level="2.1.3" data-path="2-literature-review.html"><a href="2-literature-review.html#gtd-and-machine-learning-in-previous-research"><i class="fa fa-check"></i><b>2.1.3</b> GTD and machine learning in previous research</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="2-literature-review.html"><a href="2-literature-review.html#literature-gap-and-relevance"><i class="fa fa-check"></i><b>2.2</b> Literature gap and relevance</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html"><i class="fa fa-check"></i><b>3</b> Impact Analysis</a><ul>
+<li class="chapter" data-level="3.1" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html#data-preparation"><i class="fa fa-check"></i><b>3.1</b> Data preparation</a></li>
+<li class="chapter" data-level="3.2" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html#global-overview"><i class="fa fa-check"></i><b>3.2</b> Global overview</a></li>
+<li class="chapter" data-level="3.3" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html#the-top-10-most-active-and-violent-groups"><i class="fa fa-check"></i><b>3.3</b> The top 10 most active and violent groups</a></li>
+<li class="chapter" data-level="3.4" data-path="3-impact-analysis.html"><a href="3-impact-analysis.html#the-major-and-minor-epicenters"><i class="fa fa-check"></i><b>3.4</b> The major and minor epicenters</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Statistical Hypothesis Testing</a><ul>
+<li class="chapter" data-level="4.1" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#data-preparation-1"><i class="fa fa-check"></i><b>4.1</b> Data preparation</a></li>
+<li class="chapter" data-level="4.2" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#correlation-test"><i class="fa fa-check"></i><b>4.2</b> Correlation test</a></li>
+<li class="chapter" data-level="4.3" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#hypothesis-test-fatalities-vs-groups"><i class="fa fa-check"></i><b>4.3</b> Hypothesis test: fatalities vs groups</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#anova-test"><i class="fa fa-check"></i><b>4.3.1</b> ANOVA test</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#posthoc-test"><i class="fa fa-check"></i><b>4.3.2</b> PostHoc test</a></li>
+<li class="chapter" data-level="4.3.3" data-path="4-hypothesis-testing.html"><a href="4-hypothesis-testing.html#interpretation"><i class="fa fa-check"></i><b>4.3.3</b> Interpretation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html"><i class="fa fa-check"></i><b>5</b> Pattern discovery</a><ul>
+<li class="chapter" data-level="5.1" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#data-preparation-2"><i class="fa fa-check"></i><b>5.1</b> Data preparation</a></li>
+<li class="chapter" data-level="5.2" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#explanation-of-key-terms"><i class="fa fa-check"></i><b>5.2</b> Explanation of key terms</a></li>
+<li class="chapter" data-level="5.3" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#islamic-state-isil"><i class="fa fa-check"></i><b>5.3</b> Islamic State (ISIL)</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#apriori-model-summary"><i class="fa fa-check"></i><b>5.3.1</b> Apriori model summary</a></li>
+<li class="chapter" data-level="5.3.2" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#top-5-patterns-isil"><i class="fa fa-check"></i><b>5.3.2</b> Top 5 patterns (ISIL)</a></li>
+<li class="chapter" data-level="5.3.3" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#network-graph-isil"><i class="fa fa-check"></i><b>5.3.3</b> Network graph (ISIL)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#taliban"><i class="fa fa-check"></i><b>5.4</b> Taliban</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#apriori-model-summary-1"><i class="fa fa-check"></i><b>5.4.1</b> Apriori model summary</a></li>
+<li class="chapter" data-level="5.4.2" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#top-5-patterns-taliban"><i class="fa fa-check"></i><b>5.4.2</b> Top 5 patterns (Taliban)</a></li>
+<li class="chapter" data-level="5.4.3" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#network-graph-taliban"><i class="fa fa-check"></i><b>5.4.3</b> Network graph (Taliban)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#boko-haram"><i class="fa fa-check"></i><b>5.5</b> Boko Haram</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#apriori-model-summary-2"><i class="fa fa-check"></i><b>5.5.1</b> Apriori model summary</a></li>
+<li class="chapter" data-level="5.5.2" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#top-5-patterns-boko-haram"><i class="fa fa-check"></i><b>5.5.2</b> Top 5 patterns (Boko Haram)</a></li>
+<li class="chapter" data-level="5.5.3" data-path="5-pattern-discovery.html"><a href="5-pattern-discovery.html#network-graph-boko-haram"><i class="fa fa-check"></i><b>5.5.3</b> Network graph (Boko Haram)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-time-series.html"><a href="6-time-series.html"><i class="fa fa-check"></i><b>6</b> Time-series Forecasting</a><ul>
+<li class="chapter" data-level="6.1" data-path="6-time-series.html"><a href="6-time-series.html#afghanistan-predict-future-attacks"><i class="fa fa-check"></i><b>6.1</b> Afghanistan (Predict future attacks)</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="6-time-series.html"><a href="6-time-series.html#data-preparation-3"><i class="fa fa-check"></i><b>6.1.1</b> Data preparation</a></li>
+<li class="chapter" data-level="6.1.2" data-path="6-time-series.html"><a href="6-time-series.html#seasonality-analysis"><i class="fa fa-check"></i><b>6.1.2</b> Seasonality analysis</a></li>
+<li class="chapter" data-level="6.1.3" data-path="6-time-series.html"><a href="6-time-series.html#correlation-test-1"><i class="fa fa-check"></i><b>6.1.3</b> Correlation test</a></li>
+<li class="chapter" data-level="6.1.4" data-path="6-time-series.html"><a href="6-time-series.html#modelling"><i class="fa fa-check"></i><b>6.1.4</b> Modelling</a></li>
+<li class="chapter" data-level="6.1.5" data-path="6-time-series.html"><a href="6-time-series.html#evaluating-models-performance"><i class="fa fa-check"></i><b>6.1.5</b> Evaluating models’ Performance</a></li>
+<li class="chapter" data-level="6.1.6" data-path="6-time-series.html"><a href="6-time-series.html#ensemble"><i class="fa fa-check"></i><b>6.1.6</b> Ensemble</a></li>
+<li class="chapter" data-level="6.1.7" data-path="6-time-series.html"><a href="6-time-series.html#forecast-future-number-of-attacks"><i class="fa fa-check"></i><b>6.1.7</b> Forecast future number of attacks</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="6-time-series.html"><a href="6-time-series.html#iraq-predict-future-fatalities"><i class="fa fa-check"></i><b>6.2</b> Iraq (Predict future fatalities)</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="6-time-series.html"><a href="6-time-series.html#data-preparation-4"><i class="fa fa-check"></i><b>6.2.1</b> Data preparation</a></li>
+<li class="chapter" data-level="6.2.2" data-path="6-time-series.html"><a href="6-time-series.html#seasonality-analysis-1"><i class="fa fa-check"></i><b>6.2.2</b> Seasonality analysis</a></li>
+<li class="chapter" data-level="6.2.3" data-path="6-time-series.html"><a href="6-time-series.html#correlation-test-2"><i class="fa fa-check"></i><b>6.2.3</b> Correlation test</a></li>
+<li class="chapter" data-level="6.2.4" data-path="6-time-series.html"><a href="6-time-series.html#modelling-1"><i class="fa fa-check"></i><b>6.2.4</b> Modelling</a></li>
+<li class="chapter" data-level="6.2.5" data-path="6-time-series.html"><a href="6-time-series.html#ensemble-1"><i class="fa fa-check"></i><b>6.2.5</b> Ensemble</a></li>
+<li class="chapter" data-level="6.2.6" data-path="6-time-series.html"><a href="6-time-series.html#forecast-future-fatalities"><i class="fa fa-check"></i><b>6.2.6</b> Forecast future fatalities</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="6-time-series.html"><a href="6-time-series.html#sahel-region-predict-future-attacks"><i class="fa fa-check"></i><b>6.3</b> SAHEL Region (Predict future attacks)</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="6-time-series.html"><a href="6-time-series.html#data-preparation-5"><i class="fa fa-check"></i><b>6.3.1</b> Data preparation</a></li>
+<li class="chapter" data-level="6.3.2" data-path="6-time-series.html"><a href="6-time-series.html#seasonality-analysis-2"><i class="fa fa-check"></i><b>6.3.2</b> Seasonality analysis</a></li>
+<li class="chapter" data-level="6.3.3" data-path="6-time-series.html"><a href="6-time-series.html#correlation-test-3"><i class="fa fa-check"></i><b>6.3.3</b> Correlation test</a></li>
+<li class="chapter" data-level="6.3.4" data-path="6-time-series.html"><a href="6-time-series.html#modelling-2"><i class="fa fa-check"></i><b>6.3.4</b> Modelling</a></li>
+<li class="chapter" data-level="6.3.5" data-path="6-time-series.html"><a href="6-time-series.html#ensemble-2"><i class="fa fa-check"></i><b>6.3.5</b> Ensemble</a></li>
+<li class="chapter" data-level="6.3.6" data-path="6-time-series.html"><a href="6-time-series.html#forecast-future-attacks"><i class="fa fa-check"></i><b>6.3.6</b> Forecast future attacks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-classification.html"><a href="7-classification.html"><i class="fa fa-check"></i><b>7</b> Predicting Class Probabilities</a><ul>
+<li class="chapter" data-level="7.1" data-path="7-classification.html"><a href="7-classification.html#evolution-of-gradient-boosting-machines"><i class="fa fa-check"></i><b>7.1</b> Evolution of Gradient Boosting Machines</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="7-classification.html"><a href="7-classification.html#lightgbm"><i class="fa fa-check"></i><b>7.1.1</b> LightGBM</a></li>
+<li class="chapter" data-level="7.1.2" data-path="7-classification.html"><a href="7-classification.html#the-mechanism-behind-the-improvised-accuracy"><i class="fa fa-check"></i><b>7.1.2</b> The mechanism behind the improvised accuracy</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="7-classification.html"><a href="7-classification.html#data-preparation-6"><i class="fa fa-check"></i><b>7.2</b> Data preparation</a></li>
+<li class="chapter" data-level="7.3" data-path="7-classification.html"><a href="7-classification.html#overview-of-the-target-variable"><i class="fa fa-check"></i><b>7.3</b> Overview of the target variable</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="7-classification.html"><a href="7-classification.html#dealing-with-class-imbalance"><i class="fa fa-check"></i><b>7.3.1</b> Dealing with class imbalance</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="7-classification.html"><a href="7-classification.html#feature-engineering"><i class="fa fa-check"></i><b>7.4</b> Feature engineering</a></li>
+<li class="chapter" data-level="7.5" data-path="7-classification.html"><a href="7-classification.html#validation-strategy"><i class="fa fa-check"></i><b>7.5</b> Validation strategy</a></li>
+<li class="chapter" data-level="7.6" data-path="7-classification.html"><a href="7-classification.html#hyperparameter-optimization"><i class="fa fa-check"></i><b>7.6</b> Hyperparameter optimization</a></li>
+<li class="chapter" data-level="7.7" data-path="7-classification.html"><a href="7-classification.html#modelling-3"><i class="fa fa-check"></i><b>7.7</b> Modelling</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="7-classification.html"><a href="7-classification.html#model-evaluation"><i class="fa fa-check"></i><b>7.7.1</b> Model evaluation</a></li>
+<li class="chapter" data-level="7.7.2" data-path="7-classification.html"><a href="7-classification.html#confusion-matrix"><i class="fa fa-check"></i><b>7.7.2</b> Confusion Matrix</a></li>
+<li class="chapter" data-level="7.7.3" data-path="7-classification.html"><a href="7-classification.html#feature-importance"><i class="fa fa-check"></i><b>7.7.3</b> Feature importance</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="7-classification.html"><a href="7-classification.html#model-interpretation"><i class="fa fa-check"></i><b>7.8</b> Model interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-conclusion.html"><a href="8-conclusion.html"><i class="fa fa-check"></i><b>8</b> Discussion and Conclusion</a><ul>
+<li class="chapter" data-level="8.1" data-path="8-conclusion.html"><a href="8-conclusion.html#research-limitations-and-future-work"><i class="fa fa-check"></i><b>8.1</b> Research limitations and future work</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="A-appendix-i.html"><a href="A-appendix-i.html"><i class="fa fa-check"></i><b>A</b> Appendix I</a><ul>
+<li class="chapter" data-level="A.1" data-path="A-appendix-i.html"><a href="A-appendix-i.html#initial-data-preparation-script"><i class="fa fa-check"></i><b>A.1</b> Initial data preparation script</a></li>
+<li class="chapter" data-level="A.2" data-path="A-appendix-i.html"><a href="A-appendix-i.html#list-of-variables-and-short-description"><i class="fa fa-check"></i><b>A.2</b> List of variables and short description</a></li>
+<li class="chapter" data-level="A.3" data-path="A-appendix-i.html"><a href="A-appendix-i.html#r-session-info"><i class="fa fa-check"></i><b>A.3</b> R Session Info:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Chasing The Trajectory of Terrorism: A Machine Learning Based Approach to Achieve Open Source Intelligence</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="essentials-counter" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Essentials of Counterterrorism</h1>
+<p>Terrorism research in broad context suggests that intelligence toward counterterrorism support comes in many form. The primary objective of this research is achieve actionable intelligence so it is important identify the type of intelligence. In this chapter, we distinguish between intelligence disciplines and then justify the reliability and relevance of chosen data.</p>
+<div id="intelligence-disciplines" class="section level2">
+<h2><span class="header-section-number">1.1</span> Intelligence disciplines</h2>
+<p>An extensive research by <span class="citation">(Tanner, 2014)</span> suggests that establishing methodologies for collecting intelligence is important for authorities/ policy makers to combat terrorism. The Intelligence Officer’s Bookshelf from CIA<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> recognizes Human Intelligence (HUMINT), Signals Intelligence (SIGINT), Geospatial Intelligence (GEOINT), Measurement and Signature Intelligence (MASINT) and Open Source Intelligence (OSINT) as five main disciplines of intelligence collection <span class="citation">(Lowenthal &amp; Clark, 2015)</span>.</p>
+<p><strong>Human Intelligence (HUMINT)</strong></p>
+<p>As the name suggests, HUMINT comes from human sources and remains identical with espionage and clandestine activities. This is one of the oldest intelligence techniques which use covert as well as overt individuals to gather information. Example of such individuals can be diplomats, special agents, field operatives or captured prisoners <span class="citation">(The Interagency OPSEC Support Staff, 1996)</span>. According to <span class="citation">(CIA, 2013)</span>, human intelligence plays vital role in developing and implementing U.S. national security policy and foreign policy to protect U.S. interests.</p>
+<p><strong>Signals Intelligence (SIGNIT)</strong></p>
+<p>SIGNIT is derived from electronic transmissions such as by intercepting communications between two channels/ parties. In the US, National Security Agency (NSA) is primarily responsible for signals intelligence <span class="citation">(Groce, 2018)</span>. An example of SIGNIT is NSAs mass surveillance program PRISM which is widely criticized due to dangers associated with it in terms of misuse.</p>
+<blockquote>
+<p>Edward Snowden, a former NSA contractor and source of the Guardian’s investigation on systematic data trawling by the US government, suggests that, “The reality is this: if an NSA, FBI, CIA, DIA [Defence Intelligence Agency], etc analyst has access to query raw SIGINT [signals intelligence] databases, they can enter and get results for anything they want. Phone number, email, user id, cell phone handset id (IMEI), and so on – it’s all the same. The restrictions against this are policy based, not technically based, and can change at any time.” <span class="citation">(Siddique, 2013)</span></p>
+</blockquote>
+<p><strong>Geospatial Intelligence (GEOINT)</strong></p>
+<p>GEOINT makes use of geo-spatial analysis and visual representation of activities on the earth to examine suspicious activities. This is usually carried out by observation flights, UAVs, drones and satellites <span class="citation">(Brennan, 2016)</span>.</p>
+<p><strong>Measurement and Signature Intelligence (MASINT)</strong></p>
+<p>MASINT is comparatively less known methodology however it’s becoming extremely important when concerns about WMDs (Weapons of Mass Destruction) are increasing. This approach peforms analysis of data from specific sensors for the purpose of identifying any distinctive features associated with the source emitter or sender. This analysis serves as scientific and technical intelligence information. An example of MASINT is FBI’s extensive forensic work that helps detecting traces of nuclear materials, chemical and biological weapons <span class="citation">(Groce, 2018)</span>.</p>
+<p><strong>Open Source Intelligence (OSINT)</strong></p>
+<p>OSINT is relatively new approach that focuses on publicly available information and sources such as newspaper articles, academic records and open-source data made available to public from government or researchers. The key advantage of open source intelligence is accessibility and makes it possible for individual researchers to contribute toward counter terrorism support as a part of community. It is important to note that reliability of data source can be complicated and thus requires review in order to be a use to policy makers <span class="citation">(Groce, 2018; Tanner, 2014)</span>.</p>
+<p>Focus and scope of work for this research is limited to Open Source Intelligence only.</p>
+</div>
+<div id="osint-and-data-relevance" class="section level2">
+<h2><span class="header-section-number">1.2</span> OSINT and data relevance</h2>
+<p>Despite the huge (and technically limitless) potential for counter terrorism support, the reason as to why open source intelligence is often reviewed and analysed before it can be used by policy makers is because of complications related to authenticity of data source and methodology used to compile data for hypothesis testing by a researcher. In simple words what it means is, it is extremely important for policy makers to ensure that there is no selection bias or cherry-picking from a researcher to claim the success of particular theory or results <span class="citation">(Brennan, 2016)</span>. A research paper from <span class="citation">(Geddes, 1990/ed)</span> namely “<em>How the Cases You Choose Affect the Answers You Get: Selection Bias in Comparative Politics</em>” explains the danger of biased conclusions when the cases that have achieved the outcome of interest are studied. This clearly forms the need for reproducible research and allows authorities to set the standard/ mechanism to safe guard against selection bias. This is particularly important in terrorism research. This critical issue can be taken care by codes/ scripts shared through git repositories. Nowadays, making use of tools such as rmarkdown and bookdown to deliver reproducible research <span class="citation">(Bauer, 2018; Xie, 2016)</span> makes it even easier to identify selection bias.</p>
+<div id="open-source-databases-on-terrorism" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Open-source databases on terrorism</h3>
+<p>In the context of terrorism research, there are many databases available for academic research. Such databases extracts and compile information from variety of sources (mainly open-source/ publicly available sources such as news articles) on regular interval and makes it easy to use for research. Some of the well-known databases that are open-source and widely used in academic research for counter terrorism support are as below:</p>
+<p><strong>1. Global Terrorism Database (GTD)</strong><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></p>
+<ul>
+<li>Currently the most comprehensive unclassified database on terrorist events in the world</li>
+<li>maintained by researchers at the National Consortium for the Study of Terrorism and Responses to Terrorism (START), headquartered at the University of Maryland in the USA</li>
+</ul>
+<p><strong>2. Armed Conflict Location and Event Data Project (ACLED)</strong><a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a></p>
+<ul>
+<li>provides real-time data on all reported political violence and protest events however limited to developing countries i.e. Africa, South Asia, South East Asia and the Middle East</li>
+</ul>
+<p><strong>3. UCDP/PRIO Armed Conflict Database</strong><a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a></p>
+<ul>
+<li>a joint project between the UCDP and PRIO that records armed conflicts from 1946–2016</li>
+<li>maintained by Uppsala University in Sweden</li>
+</ul>
+<p><strong>4. SIPRI Databases</strong><a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a></p>
+<ul>
+<li>provides databases on military expenditures, arms transfers, arms embargoes and peacekeeping operations</li>
+<li>maintained by Stockholm International Peace Research Institute</li>
+</ul>
+<p>In order to address the research objective, I find the Global Terrorism Database most relevant and it is the main source of data for this research. As mentioned in <a href="index.html#research-design-and-data">Research design and data</a> section, main data is further enriched with world development indicators for each countries by year from World Bank Open Data.<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a></p>
+</div>
+</div>
+<div id="whats-important-in-terrorism-research" class="section level2">
+<h2><span class="header-section-number">1.3</span> What’s important in terrorism research?</h2>
+<p>Aim of any research can be seen as an effort toward creating new knowledge, insights or a perspective. In this regard, careful selection of data source and corresponding statistical analysis based on research objective is extremely important. Equally important aspect is to share the data and codes so that research claims or findings can be reproduced. This also forms the basis for the trustworthiness and usefulness of the research outcome.</p>
+<div id="primary-vs-secondary-sources" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> Primary vs secondary sources</h3>
+<p>The term “sources” refers to data or a material used in research and has two distinct categories. The primary sources provide first hand information about an incident. Secondary sources are normally based on primary sources and provide interpretive information about an incident <span class="citation">(Indiana University Libraries, 2007)</span>. For example, propaganda video/ speech released by ISIL or any other terrorist group are a primary source whereas newspaper article that publishes journalist’s interpretation of that speech becomes secondary source. Researcher <span class="citation">(Schuurman, 2018)</span> suggests that, in such scenarios, the difference is not always distinguishable because it depends on the type of question being asked. Contrary to popular belief, newspaper or media articles are considered a secondary source of information about terrorism and terrorists. However news or media articles can be considered as primary source of information when the research focuses on how media reports on terrorism <span class="citation">(Schuurman, 2018)</span>. In our case, the main source of data is through news and media articles about reported terrorist incidents and fits the category of primary source of data based on research objective.</p>
+</div>
+<div id="use-of-statistical-analysis" class="section level3">
+<h3><span class="header-section-number">1.3.2</span> Use of statistical analysis</h3>
+<p>In most areas of scientific analysis, statistics is often considered as an important and accepted way to ensure that claims made by researchers meet defined quality standards <span class="citation">(Ranstorp, 2006)</span>. To be specific, descriptive statistics helps describing variables within data and often used to perform initial data analysis in most research. On the other hand, inferential statistics helps drawing conclusions/ decisions based on observed patterns <span class="citation">(Patel, 2009)</span>.</p>
+<p>A prominent researcher <span class="citation">(Andrew Silke, 2004)</span>, in his book “<em>Research on Terrorism: Trends, Achievements and Failures</em>”, explains why inferential statistics is significantly important in terrorism research context. The author suggests that inferential statistics is useful to introduce element of control into research. In an experimental research, control is usually obtained by random assignment of research subjects to experimental and control groups however it’s difficult achieve in real world research. As a result, lack of control element raises doubt on any relations between variables which the research claims to find. As a solution, inferential statistics can help to introduce recognized control element within research and so that less doubt and more confidence can be achieved over the veracity of research outcome.</p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p><a href="https://www.cia.gov/library/center-for-the-study-of-intelligence/csi-publications/csi-studies/studies/vol-60-no-1/pdfs/Peake-IO-Bookshelf-March-2016.pdf" class="uri">https://www.cia.gov/library/center-for-the-study-of-intelligence/csi-publications/csi-studies/studies/vol-60-no-1/pdfs/Peake-IO-Bookshelf-March-2016.pdf</a><a href="1-essentials-counter.html#fnref2">↩</a></p></li>
+<li id="fn3"><p><a href="http://www.start.umd.edu/gtd/about/" class="uri">http://www.start.umd.edu/gtd/about/</a><a href="1-essentials-counter.html#fnref3">↩</a></p></li>
+<li id="fn4"><p><a href="https://www.acleddata.com/data/" class="uri">https://www.acleddata.com/data/</a><a href="1-essentials-counter.html#fnref4">↩</a></p></li>
+<li id="fn5"><p><a href="https://www.prio.org/Data/Armed-Conflict/UCDP-PRIO/" class="uri">https://www.prio.org/Data/Armed-Conflict/UCDP-PRIO/</a><a href="1-essentials-counter.html#fnref5">↩</a></p></li>
+<li id="fn6"><p><a href="https://www.sipri.org/databases" class="uri">https://www.sipri.org/databases</a><a href="1-essentials-counter.html#fnref6">↩</a></p></li>
+<li id="fn7"><p><a href="https://data.worldbank.org/" class="uri">https://data.worldbank.org/</a><a href="1-essentials-counter.html#fnref7">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2-literature-review.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": [["thesis.pdf", "PDF"], ["thesis.epub", "EPUB"], ["thesis.docx", "Word"]],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
